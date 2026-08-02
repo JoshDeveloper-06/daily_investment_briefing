@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한국경제 시황 브리핑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1117;--card:#161b22;--card-alt:#1c2128;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#388bfd;--light-blue:#58a6ff;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.6;min-height:100vh;}
+.header{background:linear-gradient(135deg,#0d1117 0%,#1f3a5f 100%);padding:40px 24px 32px;text-align:center;border-bottom:1px solid var(--border);}
+.header-logo{font-size:12px;font-weight:500;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;}
+.header h1{font-size:28px;font-weight:900;color:var(--text);margin-bottom:8px;}
+.header h1 span{color:var(--light-blue);}
+.header-desc{color:var(--text-muted);font-size:14px;}
+.container{max-width:720px;margin:0 auto;padding:32px 20px;}
+.section-title{font-size:13px;font-weight:700;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.briefing-list{display:flex;flex-direction:column;gap:10px;}
+.briefing-item{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:var(--text);transition:border-color 0.15s,background 0.15s;}
+.briefing-item:hover{border-color:var(--light-blue);background:var(--card-alt);}
+.briefing-item.latest{border-color:rgba(88,166,255,0.4);background:rgba(31,58,95,0.3);}
+.briefing-badge{font-size:10px;font-weight:700;letter-spacing:1px;color:#fff;background:var(--accent);border-radius:4px;padding:2px 7px;white-space:nowrap;}
+.briefing-badge.old{background:var(--card-alt);color:var(--text-muted);}
+.briefing-info{flex:1;}
+.briefing-date{font-size:15px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.briefing-name{font-size:12px;color:var(--text-muted);}
+.briefing-arrow{color:var(--text-muted);font-size:18px;transition:transform 0.15s,color 0.15s;}
+.briefing-item:hover .briefing-arrow{transform:translateX(4px);color:var(--light-blue);}
+.footer{margin-top:48px;text-align:center;font-size:12px;color:var(--text-muted);padding-bottom:32px;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-logo">Daily Market Report</div>
+  <h1>한국경제 <span>시황 브리핑</span></h1>
+  <div class="header-desc">한국경제신문 기반 AI 일일 시황 분석 리포트</div>
+</div>
+<div class="container">
+  <div class="section-title">브리핑 목록</div>
+  <div class="briefing-list">
+    <a class="briefing-item latest" href="20260731_한국경제_시황브리핑.html">
+      <span class="briefing-badge">최신</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 31일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260729_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0729</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 29일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260728_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0728</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 28일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260727_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0727</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 27일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260724_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0724</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 24일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260723_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0723</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 23일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260722_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0722</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 22일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260721_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0721</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 21일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260720_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0720</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 20일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260717_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0717</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 17일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260716_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0716</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 16일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260715_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0715</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 15일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260714_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0714</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 14일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260713_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0713</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 13일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260710_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0710</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 10일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260709_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0709</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 09일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260708_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0708</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 08일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260707_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0707</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 07일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260706_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0706</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 06일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260704_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0704</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 04일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260703_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0703</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 03일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260702_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0702</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 02일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260701_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0701</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 07월 01일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260630_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0630</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 06월 30일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260629_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0629</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 06월 29일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260627_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0627</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 06월 27일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260626_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0626</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 06월 26일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260625_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0625</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 06월 25일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260624_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0624</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 06월 24일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260623_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0623</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 06월 23일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+    <a class="briefing-item" href="20260622_한국경제_시황브리핑.html">
+      <span class="briefing-badge old">0622</span>
+      <div class="briefing-info">
+        <div class="briefing-date">2026년 06월 22일</div>
+        <div class="briefing-name">한국경제 시황 브리핑</div>
+      </div>
+      <span class="briefing-arrow">›</span>
+    </a>
+  </div>
+  <div class="footer">powered by Claude · 한국경제신문 기반 AI 분석</div>
+</div>
+</body>
+</html>
