@@ -513,7 +513,10 @@ const chart = LightweightCharts.createChart(el, {
   grid: { vertLines: { color: '#2d3148' }, horzLines: { color: '#2d3148' } },
   rightPriceScale: { borderColor: '#2d3148', scaleMargins: { top: 0.04, bottom: 0.2 } },
   timeScale: { borderColor: '#2d3148' },
-  crosshair: { mode: LightweightCharts.CrosshairMode.Normal }
+  crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+  // 스크롤 정책: 위아래(세로)는 페이지 스크롤에 양보, 좌우(가로)만 차트 이동에 사용
+  handleScroll: { mouseWheel: false, pressedMouseMove: true, horzTouchDrag: true, vertTouchDrag: false },
+  handleScale: { mouseWheel: false, pinch: true, axisPressedMouseMove: true }
 });
 
 const cs = chart.addCandlestickSeries({
