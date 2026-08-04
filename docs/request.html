@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>요청사항 · 한국경제 시황 브리핑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1117;--card:#161b22;--card-alt:#1c2128;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#388bfd;--light-blue:#58a6ff;--green:#3fb950;--red:#ff6b6b;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.6;min-height:100vh;}
+.header{background:linear-gradient(135deg,#0d1117 0%,#1f3a5f 100%);padding:40px 24px 32px;text-align:center;border-bottom:1px solid var(--border);position:relative;}
+.header-nav{position:absolute;top:16px;left:16px;}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:var(--card-alt);border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:7px 12px;border-radius:8px;transition:border-color 0.15s,background 0.15s;}
+.back-btn:hover{border-color:var(--light-blue);background:rgba(88,166,255,0.12);}
+.header-logo{font-size:12px;font-weight:500;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;}
+.header h1{font-size:28px;font-weight:900;color:var(--text);margin-bottom:8px;}
+.header h1 span{color:var(--light-blue);}
+.header-desc{color:var(--text-muted);font-size:14px;}
+.container{max-width:640px;margin:0 auto;padding:32px 20px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;}
+.section-title{font-size:13px;font-weight:700;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+label{display:block;font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.field{margin-bottom:18px;}
+input[type=text],textarea{width:100%;background:var(--card-alt);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:inherit;font-size:14px;padding:10px 12px;resize:vertical;}
+input[type=text]:focus,textarea:focus{outline:none;border-color:var(--light-blue);}
+textarea{min-height:160px;}
+.hint{font-size:12px;color:var(--text-muted);margin-top:6px;}
+.type-chips{display:flex;flex-wrap:wrap;gap:8px;}
+.type-chip{cursor:pointer;background:var(--card-alt);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:12px;color:var(--text-muted);transition:all .15s;}
+.type-chip.active{border-color:var(--light-blue);color:var(--light-blue);background:rgba(88,166,255,0.12);}
+.submit-btn{width:100%;background:var(--accent);border:none;border-radius:8px;color:#fff;font-family:inherit;font-size:15px;font-weight:700;padding:13px;cursor:pointer;margin-top:8px;transition:background .15s;}
+.submit-btn:hover{background:var(--light-blue);}
+.submit-btn:disabled{background:var(--card-alt);color:var(--text-muted);cursor:not-allowed;}
+.note{margin-top:16px;font-size:12px;color:var(--text-muted);line-height:1.6;background:var(--card-alt);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:12px 14px;}
+.footer{margin-top:32px;text-align:center;font-size:12px;color:var(--text-muted);padding-bottom:32px;}
+.copied-msg{display:none;color:var(--green);font-size:12px;margin-top:8px;text-align:center;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-nav"><a class="back-btn" href="index.html">← 목록으로</a></div>
+  <div class="header-logo">Daily Market Report</div>
+  <h1>요청사항 <span>작성</span></h1>
+  <div class="header-desc">브리핑에 반영했으면 하는 내용을 남겨주세요</div>
+</div>
+<div class="container">
+  <div class="card">
+    <div class="section-title">새 요청사항</div>
+
+    <div class="field">
+      <label>유형</label>
+      <div class="type-chips" id="typeChips">
+        <div class="type-chip active" data-type="🐛 버그/오류">🐛 버그/오류</div>
+        <div class="type-chip" data-type="✨ 기능 개선">✨ 기능 개선</div>
+        <div class="type-chip" data-type="📊 데이터 정확성">📊 데이터 정확성</div>
+        <div class="type-chip" data-type="💡 기타 제안">💡 기타 제안</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="title">제목</label>
+      <input type="text" id="title" placeholder="예: 국채금리 등락 표시가 이상해요">
+    </div>
+
+    <div class="field">
+      <label for="body">내용</label>
+      <textarea id="body" placeholder="구체적으로 적어주시면 반영하기 좋습니다.&#10;예: 어느 날짜 브리핑인지, 어느 섹션인지, 어떻게 바뀌었으면 하는지"></textarea>
+      <div class="hint">제출하면 GitHub 이슈 작성 페이지가 새 탭으로 열립니다. 내용을 확인하고 "Create"만 누르면 등록됩니다.</div>
+    </div>
+
+    <button class="submit-btn" id="submitBtn">GitHub 이슈로 제출하기 →</button>
+    <div class="copied-msg" id="copiedMsg">✓ 내용을 클립보드에도 복사했습니다.</div>
+
+    <div class="note">
+      GitHub 계정 로그인이 필요합니다. 로그인 상태가 아니면 GitHub 로그인 화면이 먼저 나올 수 있어요.
+      등록된 요청사항은 <code>private-investment</code> 저장소의 Issues 탭에 쌓이고, 다음 브리핑 작업 시 확인합니다.
+    </div>
+  </div>
+  <div class="footer">powered by Claude · 한국경제신문 기반 AI 분석</div>
+</div>
+
+<script>
+const REPO = "JoshDeveloper-06/private-investment";
+let selectedType = "🐛 버그/오류";
+
+document.querySelectorAll('.type-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.type-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    selectedType = chip.dataset.type;
+  });
+});
+
+document.getElementById('submitBtn').addEventListener('click', () => {
+  const title = document.getElementById('title').value.trim();
+  const body = document.getElementById('body').value.trim();
+  if (!title) { alert('제목을 입력해주세요.'); return; }
+
+  const issueTitle = `[요청] ${title}`;
+  const issueBody = `**유형**: ${selectedType}\n\n${body || '(내용 없음)'}\n\n---\n_hankyoung_briefing 요청사항 페이지에서 제출됨_`;
+
+  const url = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}&labels=요청사항`;
+
+  navigator.clipboard?.writeText(`${issueTitle}\n\n${issueBody}`).then(() => {
+    document.getElementById('copiedMsg').style.display = 'block';
+  }).catch(() => {});
+
+  window.open(url, '_blank');
+});
+</script>
+</body>
+</html>
