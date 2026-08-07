@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>알림받기 · 한국경제 시황 브리핑</title>
+<link rel="alternate" type="application/rss+xml" title="한국경제 시황 브리핑" href="feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1117;--card:#161b22;--card-alt:#1c2128;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#388bfd;--light-blue:#58a6ff;--green:#3fb950;--orange:#ff9800;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.6;min-height:100vh;}
+.header{background:linear-gradient(135deg,#0d1117 0%,#1f3a5f 100%);padding:40px 24px 32px;text-align:center;border-bottom:1px solid var(--border);position:relative;}
+.header-nav{position:absolute;top:16px;left:16px;}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:var(--card-alt);border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:7px 12px;border-radius:8px;transition:border-color 0.15s,background 0.15s;}
+.back-btn:hover{border-color:var(--light-blue);background:rgba(88,166,255,0.12);}
+.header-logo{font-size:12px;font-weight:500;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;}
+.header h1{font-size:28px;font-weight:900;color:var(--text);margin-bottom:8px;}
+.header h1 span{color:var(--light-blue);}
+.header-desc{color:var(--text-muted);font-size:14px;}
+.container{max-width:640px;margin:0 auto;padding:32px 20px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:16px;}
+.section-title{font-size:13px;font-weight:700;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.free-badge{display:inline-block;background:rgba(63,185,80,0.15);border:1px solid var(--green);color:var(--green);font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+.lead{font-size:14px;color:var(--text);margin-bottom:18px;line-height:1.7;}
+.addr-label{font-size:12px;font-weight:700;color:var(--text-muted);margin-bottom:6px;}
+.addr-row{display:flex;gap:8px;align-items:stretch;}
+.addr{flex:1;background:var(--card-alt);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;padding:11px 12px;overflow-x:auto;white-space:nowrap;}
+.copy-btn{background:var(--accent);border:none;border-radius:8px;color:#fff;font-family:inherit;font-size:13px;font-weight:700;padding:0 18px;cursor:pointer;white-space:nowrap;transition:background .15s;}
+.copy-btn:hover{background:var(--light-blue);}
+.copied{display:none;color:var(--green);font-size:12px;margin-top:8px;font-weight:600;}
+.step{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);}
+.step:last-child{border-bottom:none;padding-bottom:0;}
+.step-num{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--card-alt);border:1px solid var(--border);color:var(--light-blue);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.step-body{flex:1;}
+.step-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.step-desc{font-size:13px;color:var(--text-muted);line-height:1.65;}
+.step-desc a{color:var(--light-blue);text-decoration:none;}
+.step-desc a:hover{text-decoration:underline;}
+.ways{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:4px;}
+@media(max-width:560px){.ways{grid-template-columns:1fr;}}
+.way{background:var(--card-alt);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;}
+.way-icon{font-size:22px;margin-bottom:6px;}
+.way-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.way-desc{font-size:11.5px;color:var(--text-muted);line-height:1.5;}
+.note{margin-top:16px;font-size:12px;color:var(--text-muted);line-height:1.7;background:var(--card-alt);border-left:3px solid var(--orange);border-radius:0 8px 8px 0;padding:12px 14px;}
+.footer{margin-top:32px;text-align:center;font-size:12px;color:var(--text-muted);padding-bottom:32px;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-nav"><a class="back-btn" href="index.html">← 목록으로</a></div>
+  <div class="header-logo">Daily Market Report</div>
+  <h1>알림 <span>받기</span></h1>
+  <div class="header-desc">새 브리핑이 올라오면 바로 알려드립니다</div>
+</div>
+<div class="container">
+
+  <div class="card">
+    <div class="free-badge">✓ 완전 무료 · 회원가입 없음</div>
+    <div class="lead">
+      아래 <b>알림 주소</b>를 복사해서 평소 쓰시는 앱에 등록하면,
+      새 브리핑이 올라올 때마다 자동으로 알림이 옵니다.
+      이 사이트에 가입하거나 개인정보를 남길 필요가 없습니다.
+    </div>
+
+    <div class="addr-label">알림 주소</div>
+    <div class="addr-row">
+      <div class="addr" id="feedUrl">https://joshdeveloper-06.github.io/daily_investment_briefing/feed.xml</div>
+      <button class="copy-btn" id="copyBtn">복사</button>
+    </div>
+    <div class="copied" id="copied">✓ 복사했습니다. 아래 앱 중 하나에 붙여넣으세요.</div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">받고 싶은 방식 고르기</div>
+    <div class="ways">
+      <div class="way">
+        <div class="way-icon">📱</div>
+        <div class="way-name">휴대폰 알림</div>
+        <div class="way-desc">Feedly · Inoreader<br>앱 설치 후 주소 등록</div>
+      </div>
+      <div class="way">
+        <div class="way-icon">✉️</div>
+        <div class="way-name">이메일</div>
+        <div class="way-desc">Follow.it · Blogtrottr<br>주소 + 메일 입력</div>
+      </div>
+      <div class="way">
+        <div class="way-icon">🔗</div>
+        <div class="way-name">카톡 등 기타</div>
+        <div class="way-desc">IFTTT에서 RSS 트리거<br>원하는 앱과 연결</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">가장 쉬운 방법 — 휴대폰 알림</div>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Feedly 앱 설치</div>
+        <div class="step-desc">앱스토어·플레이스토어에서 <b>Feedly</b>를 검색해 설치합니다. (무료)</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">위 알림 주소 붙여넣기</div>
+        <div class="step-desc">앱에서 <b>＋(Add Content)</b> → 검색창에 위에서 복사한 주소를 붙여넣고 <b>Follow</b>를 누릅니다.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">알림 켜기</div>
+        <div class="step-desc">피드 설정에서 알림(Notification)을 켜면 끝입니다. 새 브리핑이 올라오면 휴대폰으로 바로 옵니다.</div>
+      </div>
+    </div>
+    <div class="note">
+      <b>참고</b> — 이 주소는 RSS라는 표준 형식입니다. 특정 회사에 묶이지 않아서
+      원하는 앱을 자유롭게 고를 수 있고, 나중에 앱을 바꿔도 같은 주소를 그대로 쓰면 됩니다.
+      알림을 그만 받고 싶으면 앱에서 팔로우만 해제하면 됩니다.
+    </div>
+  </div>
+
+  <div class="footer">powered by Claude · 한국경제신문 기반 AI 분석</div>
+</div>
+
+<script>
+document.getElementById('copyBtn').addEventListener('click', () => {
+  const url = document.getElementById('feedUrl').textContent.trim();
+  const done = () => {
+    const el = document.getElementById('copied');
+    el.style.display = 'block';
+    document.getElementById('copyBtn').textContent = '복사됨';
+  };
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(done).catch(fallback);
+  } else {
+    fallback();
+  }
+  function fallback() {
+    // clipboard API가 막힌 환경(구형 브라우저 등)에서는 주소를 선택해 준다
+    const r = document.createRange();
+    r.selectNodeContents(document.getElementById('feedUrl'));
+    const s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+    done();
+  }
+});
+</script>
+</body>
+</html>
