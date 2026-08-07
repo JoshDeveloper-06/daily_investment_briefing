@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>한국경제 시황 브리핑</title>
+<link rel="alternate" type="application/rss+xml" title="한국경제 시황 브리핑" href="feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
@@ -30,14 +31,19 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .briefing-item:hover .briefing-arrow{transform:translateX(4px);color:var(--light-blue);}
 .footer{margin-top:48px;text-align:center;font-size:12px;color:var(--text-muted);padding-bottom:32px;}
 .header{position:relative;}
-.header-nav{position:absolute;top:16px;right:16px;}
-.request-btn{display:inline-flex;align-items:center;gap:6px;background:var(--card-alt);border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:7px 12px;border-radius:8px;transition:border-color 0.15s,background 0.15s;}
+.header-nav{position:absolute;top:16px;right:16px;display:flex;gap:6px;}
+.request-btn{display:inline-flex;align-items:center;gap:6px;background:var(--card-alt);border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:7px 12px;border-radius:8px;transition:border-color 0.15s,background 0.15s;white-space:nowrap;}
 .request-btn:hover{border-color:var(--light-blue);background:rgba(88,166,255,0.12);}
+.request-btn.rss:hover{border-color:#ff9800;background:rgba(255,152,0,0.12);}
+@media(max-width:520px){.header-nav{position:static;justify-content:center;margin-bottom:16px;}}
 </style>
 </head>
 <body>
 <div class="header">
-  <div class="header-nav"><a class="request-btn" href="request.html">💬 요청사항</a></div>
+  <div class="header-nav">
+    <a class="request-btn rss" href="feed.xml" title="RSS 주소를 Feedly·Inoreader 등 리더 앱에 등록하면 새 브리핑 알림을 받을 수 있습니다">📡 RSS 구독</a>
+    <a class="request-btn" href="request.html">💬 요청사항</a>
+  </div>
   <div class="header-logo">Daily Market Report</div>
   <h1>한국경제 <span>시황 브리핑</span></h1>
   <div class="header-desc">한국경제신문 기반 AI 일일 시황 분석 리포트</div>
