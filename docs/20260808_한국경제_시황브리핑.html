@@ -232,19 +232,32 @@ function buildChart(containerId, raw) {
   return { chart, el };
 }
 
+// 코스피는 기본 표시 탭이라 바로 만든다(폭이 처음부터 올바르다).
+// 코스닥은 여기서 만들지 않는다 — display:none인 채로 만들면 컨테이너 폭이 0이라
+// lightweight-charts의 내부 좌표계가 깨지고, 나중에 리사이즈해도 복구되지 않은 채
+// "전체 기간이 표시되는" 상태로 굳어버린다(2026-08-09 실증: getVisibleLogicalRange()가
+// 계속 null을 반환). switchIdx()에서 탭이 실제로 보이는 시점에 지연 생성한다.
 idxCharts.kospi = buildChart('chart-wrap', rawKospi);
-if (rawKosdaq) idxCharts.kosdaq = buildChart('chart-wrap-kq', rawKosdaq);
 
-// 탭 전환: 숨겨진 상태로 생성된 차트는 폭이 0이므로, 표시 직후 컨테이너 폭으로 리사이즈한다.
 function switchIdx(idx) {
   document.querySelectorAll('.idx-tab').forEach(b =>
     b.classList.toggle('active', b.dataset.idx === idx));
   document.querySelectorAll('.idx-pane').forEach(pane =>
     pane.style.display = (pane.dataset.idx === idx) ? '' : 'none');
+
+  if (idx === 'kosdaq' && !idxCharts.kosdaq && rawKosdaq) {
+    // pane이 이미 보이는 상태이므로 컨테이너 폭이 정확하다 — 처음부터 올바르게 그려진다.
+    idxCharts.kosdaq = buildChart('chart-wrap-kq', rawKosdaq);
+    return;
+  }
+
   const c = idxCharts[idx];
   if (c && c.chart && c.el) {
+    // 숨겨져 있던 동안 창 크기가 바뀌었을 수 있으니 폭만 갱신한다.
+    // fitContent()는 절대 호출하지 않는다 — 탭을 누를 때마다 그 차트의 줌이
+    // 전체 기간으로 풀려버리는 원인이 바로 이 호출이었다(코스닥에서 겪은 증상이
+    // 코스피 탭을 다시 눌렀을 때도 똑같이 재현됐던 이유).
     c.chart.applyOptions({ width: c.el.clientWidth });
-    c.chart.timeScale().fitContent();
   }
 }
 </script>
