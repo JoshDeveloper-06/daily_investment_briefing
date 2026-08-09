@@ -392,7 +392,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
     <div class="update-head">
       <div class="update-head-txt">
         <div class="update-title" id="updateTitle">📢 브리핑이 업데이트됐습니다</div>
-        <div class="update-sub">2026년 8월 10일 변경사항</div>
+        <div class="update-sub">2026년 8월 9일 변경사항</div>
       </div>
       <button class="update-close" type="button" aria-label="닫기">✕</button>
     </div>
@@ -433,10 +433,17 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
         </div>
       </div>
       <div class="update-item">
+        <div class="update-icon">📊</div>
+        <div>
+          <div class="update-item-title">수급 표가 정확해지고 빠짐없이 채워집니다</div>
+          <div class="update-item-desc">외국인·기관 순매수/순매도 TOP 10을 증권 데이터에서 직접 받아옵니다. 금액이 잘못 적히거나 표 하나가 통째로 비어 있던 문제가 해결됐습니다.</div>
+        </div>
+      </div>
+      <div class="update-item">
         <div class="update-icon">✅</div>
         <div>
           <div class="update-item-title">숫자가 더 정확해집니다</div>
-          <div class="update-item-desc">지수·환율·국채·원자재를 신문 지면 대신 공개 시세 API에서 직접 받아오도록 바꿨습니다. 값이 빠지거나 전날 수치가 그대로 실리는 일을 막습니다.</div>
+          <div class="update-item-desc">지수·환율·국채·원자재·수급을 신문 지면 대신 공개 시세 API에서 직접 받아오도록 바꿨습니다. 값이 빠지거나 전날 수치가 그대로 실리는 일을 막습니다.</div>
         </div>
       </div>
     </div>
@@ -447,7 +454,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 </div>
 <script>
 (function(){
-  var KEY = 'briefing_update_seen', VER = '20260810';
+  var KEY = 'briefing_update_seen', VER = '20260809';
   var el = document.getElementById('updateModal');
   if (!el) return;
   // 이미 이 버전 안내를 본 사람에겐 띄우지 않는다.
