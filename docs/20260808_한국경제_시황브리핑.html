@@ -195,7 +195,8 @@ function buildChart(containerId, raw) {
     layout: { background: { color: '#1a1a1f' }, textColor: '#8892a4' },
     grid: { vertLines: { color: '#2d3148' }, horzLines: { color: '#2d3148' } },
     rightPriceScale: { borderColor: '#2d3148', scaleMargins: { top: 0.04, bottom: 0.2 } },
-    timeScale: { borderColor: '#2d3148' },
+    // fixLeftEdge/fixRightEdge: 데이터 없는 빈 영역으로는 좌우 스크롤/줌이 안 되도록 고정
+    timeScale: { borderColor: '#2d3148', fixLeftEdge: true, fixRightEdge: true },
     crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
     // 스크롤 정책: 위아래(세로)는 페이지 스크롤에 양보, 좌우(가로)만 차트 이동에 사용
     //  - vertTouchDrag:false → 모바일에서 세로 스와이프 시 차트가 아닌 페이지가 스크롤됨
