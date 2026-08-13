@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>기술적분석(차트) · 주식공부</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1117;--card:#161b22;--card-alt:#1c2128;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#388bfd;--light-blue:#58a6ff;--green:#3fb950;--red:#ff6b6b;--orange:#ff9800;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.6;min-height:100vh;}
+.header{background:linear-gradient(135deg,#0d1117 0%,#1f3a5f 100%);padding:40px 24px 32px;text-align:center;border-bottom:1px solid var(--border);position:relative;}
+.header-logo{font-size:12px;font-weight:500;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;}
+.header h1{font-size:28px;font-weight:900;color:var(--text);margin-bottom:8px;}
+.header h1 span{color:var(--light-blue);}
+.header-desc{color:var(--text-muted);font-size:14px;}
+.header-nav{position:absolute;top:16px;left:16px;}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:var(--card-alt);border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:7px 12px;border-radius:8px;transition:border-color 0.15s,background 0.15s;}
+.back-btn:hover{border-color:var(--light-blue);background:rgba(88,166,255,0.12);}
+.container{max-width:720px;margin:0 auto;padding:32px 20px;}
+.crumb{font-size:12px;color:var(--text-muted);margin-bottom:16px;}
+.crumb a{color:var(--text-muted);text-decoration:none;}
+.crumb a:hover{color:var(--light-blue);}
+.section-title{font-size:13px;font-weight:700;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.card-list{display:flex;flex-direction:column;gap:10px;}
+.card-item{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:var(--text);transition:border-color 0.15s,background 0.15s;}
+.card-item:hover{border-color:var(--light-blue);background:var(--card-alt);}
+.card-icon{font-size:22px;flex-shrink:0;}
+.card-info{flex:1;min-width:0;}
+.card-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.card-desc{font-size:12.5px;color:var(--text-muted);}
+.card-meta{font-size:11px;color:var(--text-muted);margin-top:5px;}
+.card-arrow{color:var(--text-muted);font-size:18px;transition:transform 0.15s,color 0.15s;}
+.card-item:hover .card-arrow{transform:translateX(4px);color:var(--light-blue);}
+.tag{display:inline-block;font-size:10.5px;font-weight:600;color:var(--text-muted);background:var(--card-alt);border:1px solid var(--border);border-radius:20px;padding:2px 9px;margin:3px 4px 0 0;}
+.empty{background:var(--card);border:1px dashed var(--border);border-radius:10px;padding:28px 20px;text-align:center;color:var(--text-muted);font-size:13px;}
+.footer{margin-top:48px;text-align:center;font-size:12px;color:var(--text-muted);padding-bottom:32px;}
+@media(max-width:520px){.header-nav{position:static;justify-content:center;margin-bottom:14px;display:flex;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-nav"><a class="back-btn" href="../index.html">← 주식공부</a></div>
+  <div class="header-logo">Study Board</div>
+  <h1>📈 <span>기술적분석(차트)</span></h1>
+  <div class="header-desc">차트 패턴과 매매 신호를 원 규칙부터 정리한다</div>
+</div>
+<div class="container">
+  <div class="crumb"><a href="../../index.html">시황 브리핑</a> ›
+    <a href="../index.html">주식공부</a> ›
+    기술적분석(차트)</div>
+  <div class="section-title">기술적분석(차트) · 1편</div>
+  <div class="card-list">
+    <a class="card-item" href="follow-through-day.html">
+      <div class="card-info">
+        <div class="card-title">팔로스루 데이 (Follow-Through Day)</div>
+        <div class="card-desc">조정 뒤 반등이 진짜인지 가리는 오닐의 확인 신호. 규칙을 정리하고 코스피 실제 사례를 성공·실패 모두 놓고 검증한다.</div>
+        <div class="card-meta">2026-08-13 · 약 12분</div>
+        <div><span class="tag">#윌리엄오닐</span><span class="tag">#추세전환</span><span class="tag">#거래량</span><span class="tag">#지수</span></div>
+      </div>
+      <span class="card-arrow">›</span>
+    </a>
+  </div>
+  <div class="footer">powered by Claude · 주식공부 노트</div>
+</div>
+
+
+</body>
+</html>
