@@ -1,0 +1,37 @@
+# ⚠️ 이 저장소는 PUBLIC이다 (GitHub Pages 호스팅).
+# 여기 커밋되는 것은 전 세계 누구나 읽을 수 있고, 한 번 커밋하면 나중에 지워도
+# git 이력에 영원히 남는다. 아래 규칙은 실수로 자격증명을 떨어뜨렸을 때의 방어막이다.
+
+# ── 자격증명 (절대 금지) ──────────────────────────────────────────────────
+# Firebase 서비스 계정 키는 프로젝트 전체 관리자 권한이다. 노출되면 Firestore를
+# 읽고 지우고, 구독자 전원에게 푸시를 보낼 수 있다.
+# 올바른 방법: 로컬 PC에 두고 GOOGLE_APPLICATION_CREDENTIALS 환경변수로 경로만 넘긴다.
+*serviceaccount*.json
+*service-account*.json
+*-firebase-adminsdk-*.json
+*credential*.json
+*secret*
+*.pem
+*.key
+.env
+.env.*
+.secrets/
+
+# ── 소스 파일 (이 저장소는 docs/ 만 담는다) ───────────────────────────────
+# 빌드 스크립트·원본 데이터는 private-investment(비공개)에 있어야 한다.
+build_briefing.py
+generate_index.py
+fetch_*.py
+analyze_*.py
+send_push.py
+firebase_config.py
+data_2026*.json
+chart_data_*.json
+chart_raw_*.json
+output/
+
+# ── 임시 산출물 ───────────────────────────────────────────────────────────
+_*.json
+_*.html
+raw_*.json
+*.tmp
