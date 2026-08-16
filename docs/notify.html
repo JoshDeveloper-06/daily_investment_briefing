@@ -21,29 +21,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .header-desc{color:var(--text-muted);font-size:14px;}
 .container{max-width:640px;margin:0 auto;padding:32px 20px;}
 .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:16px;}
-.section-title{font-size:13px;font-weight:700;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border);}
 .free-badge{display:inline-block;background:rgba(63,185,80,0.15);border:1px solid var(--green);color:var(--green);font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px;}
 .lead{font-size:14px;color:var(--text);margin-bottom:18px;line-height:1.7;}
-.addr-label{font-size:12px;font-weight:700;color:var(--text-muted);margin-bottom:6px;}
-.addr-row{display:flex;gap:8px;align-items:stretch;}
-.addr{flex:1;background:var(--card-alt);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;padding:11px 12px;overflow-x:auto;white-space:nowrap;}
-.copy-btn{background:var(--accent);border:none;border-radius:8px;color:#fff;font-family:inherit;font-size:13px;font-weight:700;padding:0 18px;cursor:pointer;white-space:nowrap;transition:background .15s;}
-.copy-btn:hover{background:var(--light-blue);}
-.copied{display:none;color:var(--green);font-size:12px;margin-top:8px;font-weight:600;}
-.step{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);}
-.step:last-child{border-bottom:none;padding-bottom:0;}
-.step-num{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--card-alt);border:1px solid var(--border);color:var(--light-blue);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;}
-.step-body{flex:1;}
-.step-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;}
-.step-desc{font-size:13px;color:var(--text-muted);line-height:1.65;}
-.step-desc a{color:var(--light-blue);text-decoration:none;}
-.step-desc a:hover{text-decoration:underline;}
-.ways{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:4px;}
-@media(max-width:560px){.ways{grid-template-columns:1fr;}}
-.way{background:var(--card-alt);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;}
-.way-icon{font-size:22px;margin-bottom:6px;}
-.way-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;}
-.way-desc{font-size:11.5px;color:var(--text-muted);line-height:1.5;}
 .note{margin-top:16px;font-size:12px;color:var(--text-muted);line-height:1.7;background:var(--card-alt);border-left:3px solid var(--orange);border-radius:0 8px 8px 0;padding:12px 14px;}
 /* 웹푸시 구독 */
 .push-card{border-color:rgba(88,166,255,0.35);}
@@ -68,10 +47,10 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 <div class="container">
 
   <div class="card push-card" id="pushCard" style="display:none">
-    <div class="free-badge">⚡ 가장 간단한 방법 · 앱 설치 불필요</div>
+    <div class="free-badge">✓ 완전 무료 · 앱 설치 불필요 · 회원가입 없음</div>
     <div class="lead">
-      이 브라우저로 <b>바로 알림 받기</b>를 켜면, 새 브리핑이 올라올 때
-      휴대폰·PC에 알림이 뜹니다. 아래 RSS 방식과 달리 다른 앱을 깔 필요가 없습니다.
+      아래 버튼을 누르면, 새 브리핑이 올라올 때 이 기기로 알림이 옵니다.
+      다른 앱을 깔거나 이 사이트에 가입할 필요가 없습니다.
     </div>
     <button class="push-btn" id="pushBtn" type="button">🔔 이 브라우저로 알림 받기</button>
     <div class="push-status" id="pushStatus"></div>
@@ -79,111 +58,33 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
     <div class="note">
       <b>iPhone·iPad를 쓰신다면</b> — Safari에서 <b>공유 → 홈 화면에 추가</b>로 설치한 뒤,
       홈 화면 아이콘으로 열어서 켜야 알림이 옵니다(iOS 16.4 이상). 애플 정책상 그렇습니다.
-      번거로우시면 아래 RSS 방식을 쓰셔도 됩니다.
     </div>
   </div>
 
-  <div class="card">
-    <div class="free-badge">✓ 완전 무료 · 회원가입 없음</div>
-    <div class="lead">
-      아래 <b>알림 주소</b>를 복사해서 평소 쓰시는 앱에 등록하면,
-      새 브리핑이 올라올 때마다 자동으로 알림이 옵니다.
-      이 사이트에 가입하거나 개인정보를 남길 필요가 없습니다.
-    </div>
-
-    <div class="addr-label">알림 주소</div>
-    <div class="addr-row">
-      <div class="addr" id="feedUrl">https://joshdeveloper-06.github.io/daily_investment_briefing/feed.xml</div>
-      <button class="copy-btn" id="copyBtn">복사</button>
-    </div>
-    <div class="copied" id="copied">✓ 복사했습니다. 아래 앱 중 하나에 붙여넣으세요.</div>
-  </div>
-
-  <div class="card">
-    <div class="section-title">받고 싶은 방식 고르기</div>
-    <div class="ways">
-      <div class="way">
-        <div class="way-icon">📱</div>
-        <div class="way-name">휴대폰 알림</div>
-        <div class="way-desc">Feedly · Inoreader<br>앱 설치 후 주소 등록</div>
-      </div>
-      <div class="way">
-        <div class="way-icon">✉️</div>
-        <div class="way-name">이메일</div>
-        <div class="way-desc">Follow.it · Blogtrottr<br>주소 + 메일 입력</div>
-      </div>
-      <div class="way">
-        <div class="way-icon">🔗</div>
-        <div class="way-name">카톡 등 기타</div>
-        <div class="way-desc">IFTTT에서 RSS 트리거<br>원하는 앱과 연결</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="section-title">가장 쉬운 방법 — 휴대폰 알림</div>
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-body">
-        <div class="step-title">Feedly 앱 설치</div>
-        <div class="step-desc">앱스토어·플레이스토어에서 <b>Feedly</b>를 검색해 설치합니다. (무료)</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-body">
-        <div class="step-title">위 알림 주소 붙여넣기</div>
-        <div class="step-desc">앱에서 <b>＋(Add Content)</b> → 검색창에 위에서 복사한 주소를 붙여넣고 <b>Follow</b>를 누릅니다.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-body">
-        <div class="step-title">알림 켜기</div>
-        <div class="step-desc">피드 설정에서 알림(Notification)을 켜면 끝입니다. 새 브리핑이 올라오면 휴대폰으로 바로 옵니다.</div>
-      </div>
+  <!-- 웹푸시를 못 쓰는 환경용 안내.
+       RSS 안내를 걷어냈으므로(2026-08-16) 이 블록이 없으면 그런 브라우저에는
+       빈 페이지만 남는다. 절대 같이 지우지 말 것. -->
+  <div class="card" id="pushFallback" style="display:none">
+    <div class="lead" style="margin-bottom:0">
+      이 브라우저는 웹 알림을 지원하지 않습니다.
+      <b>Chrome·Edge·Android Chrome</b>에서 이 페이지를 열면 알림을 켤 수 있습니다.
     </div>
     <div class="note">
-      <b>참고</b> — 이 주소는 RSS라는 표준 형식입니다. 특정 회사에 묶이지 않아서
-      원하는 앱을 자유롭게 고를 수 있고, 나중에 앱을 바꿔도 같은 주소를 그대로 쓰면 됩니다.
-      알림을 그만 받고 싶으면 앱에서 팔로우만 해제하면 됩니다.
+      <b>iPhone·iPad</b>라면 Safari에서 <b>공유 → 홈 화면에 추가</b>로 설치한 뒤,
+      홈 화면 아이콘으로 이 페이지를 열어주세요(iOS 16.4 이상). 일반 Safari 탭에서는
+      애플 정책상 알림을 켤 수 없습니다.
     </div>
   </div>
 
   <div class="footer">powered by Claude · 한국경제신문 기반 AI 분석</div>
 </div>
 
-<script>
-document.getElementById('copyBtn').addEventListener('click', () => {
-  const url = document.getElementById('feedUrl').textContent.trim();
-  const done = () => {
-    const el = document.getElementById('copied');
-    el.style.display = 'block';
-    document.getElementById('copyBtn').textContent = '복사됨';
-  };
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(url).then(done).catch(fallback);
-  } else {
-    fallback();
-  }
-  function fallback() {
-    // clipboard API가 막힌 환경(구형 브라우저 등)에서는 주소를 선택해 준다
-    const r = document.createRange();
-    r.selectNodeContents(document.getElementById('feedUrl'));
-    const s = window.getSelection();
-    s.removeAllRanges();
-    s.addRange(r);
-    done();
-  }
-});
-</script>
-
 <script type="module">
 /* 웹푸시 구독 — FCM 토큰을 받아 Firestore(fcm_tokens)에 저장한다.
  *
  * 이 카드는 기본이 display:none이고, 브라우저가 웹푸시를 지원하고 SDK 로드까지
- * 성공했을 때만 보인다. 실패하면 조용히 숨긴 채 아래 RSS 안내만 남는다 —
- * 켜지지도 않는 버튼을 보여주는 것보다 낫다.
+ * 성공했을 때만 보인다. 실패하면 대신 #pushFallback 안내를 띄운다 —
+ * 켜지지도 않는 버튼을 보여주는 것보다 낫고, 예전처럼 대체할 RSS 안내도 없다.
  *
  * ⚠️ 설정값이 firebase_config.py / firebase-messaging-sw.js 와 3중으로 중복된다.
  *    파이썬·서비스워커·이 페이지는 서로 import할 수 없어 어쩔 수 없다.
@@ -201,16 +102,20 @@ const VAPID_KEY = "BKydDRZSeWVmhYXTz53p5f9MRijVcT3sC2bozTfvayQx7-Y9x9zs3kduBTzT8
 const SW_URL = "firebase-messaging-sw.js";   // 사이트 루트에 배포된다
 const TOKEN_KEY = "fcm_token";
 
-const card   = document.getElementById('pushCard');
-const btn    = document.getElementById('pushBtn');
-const status = document.getElementById('pushStatus');
-const offBtn = document.getElementById('pushOff');
+const card     = document.getElementById('pushCard');
+const fallback = document.getElementById('pushFallback');
+const btn      = document.getElementById('pushBtn');
+const status   = document.getElementById('pushStatus');
+const offBtn   = document.getElementById('pushOff');
 
 const say = (msg, cls) => { status.textContent = msg; status.className = 'push-status' + (cls ? ' ' + cls : ''); };
+const showFallback = () => { fallback.style.display = 'block'; };
 
 (async () => {
-  // 지원 여부 먼저 — 지원 안 하면 카드를 아예 띄우지 않는다.
-  if (!('serviceWorker' in navigator) || !('Notification' in window) || !('PushManager' in window)) return;
+  // 지원 여부 먼저 — 지원 안 하면 안내 카드로 대체한다.
+  if (!('serviceWorker' in navigator) || !('Notification' in window) || !('PushManager' in window)) {
+    return showFallback();
+  }
 
   let fb, messaging, fs, db;
   try {
@@ -219,14 +124,14 @@ const say = (msg, cls) => { status.textContent = msg; status.className = 'push-s
       import('https://www.gstatic.com/firebasejs/10.12.5/firebase-messaging.js'),
       import('https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-lite.js'),
     ]);
-    if (!(await msgMod.isSupported())) return;      // iOS 미설치 Safari 등
+    if (!(await msgMod.isSupported())) return showFallback();   // iOS 미설치 Safari 등
     fb = appMod.initializeApp(CONFIG);
     messaging = msgMod.getMessaging(fb);
     fs = fsMod;
     db = fsMod.getFirestore(fb);
     window.__msg = msgMod;
   } catch (e) {
-    return;   // SDK 로드 실패 → 카드 숨긴 채 종료
+    return showFallback();   // SDK 로드 실패
   }
 
   card.style.display = 'block';
