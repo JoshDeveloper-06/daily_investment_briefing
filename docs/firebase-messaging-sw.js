@@ -15,10 +15,23 @@
  *
  * SDK는 compat 빌드를 쓴다. 서비스 워커에서는 ESM import가 제약이 많아
  * importScripts + compat 조합이 가장 안전하다(Firebase 공식 문서 방식).
+ *
+ * ⛔ **SDK를 CDN에서 importScripts 하지 마라 (2026-08-16 실증 버그).**
+ *    Firebase 공식 문서는 `importScripts('https://www.gstatic.com/firebasejs/…')`를 안내하지만,
+ *    이 사이트 환경에서는 워커 안의 **교차출처 importScripts가 전부 차단**돼
+ *    `ServiceWorker script evaluation failed`로 등록 자체가 실패했다.
+ *    실측(실제 Chrome, notify.html):
+ *      - importScripts(gstatic)  → "failed to load"
+ *      - importScripts(jsdelivr) → "failed to load"   ← CDN을 바꿔도 소용없다
+ *      - fetch(같은 gstatic URL)  → 200               ← 네트워크 문제가 아니다
+ *      - importScripts(blob: 동일출처) → OK           ← importScripts 자체는 멀쩡하다
+ *    즉 원인은 "교차출처"이지 CDN 장애나 배포 지연이 아니다. 그래서 SDK 두 개를
+ *    **docs/에 같이 배포해 동일 출처로 부른다**(아래). 버전을 올릴 땐 파일도 새로 받아
+ *    교체해야 한다 — URL만 고치면 다시 죽는다.
  */
 
-importScripts('https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js');
-importScripts('https://www.gstatic.com/firebasejs/10.12.5/firebase-messaging-compat.js');
+importScripts('./firebase-app-compat.js');
+importScripts('./firebase-messaging-compat.js');
 
 firebase.initializeApp({
   apiKey: "AIzaSyACozKTF1MAKOGD_SF5dRstZ0fGwkSs-hc",
