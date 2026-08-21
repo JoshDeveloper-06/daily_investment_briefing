@@ -14,7 +14,11 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.6}
 html{scroll-behavior:smooth}
-.header{background:linear-gradient(135deg,#0d1117 0%,#1f3a5f 100%);padding:24px 20px 16px;}
+.header{background:linear-gradient(135deg,#0d1117 0%,#1f3a5f 100%);padding:24px 20px 16px;position:relative;}
+.header-nav{position:absolute;top:16px;right:16px;}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:var(--card-alt);border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:7px 12px;border-radius:8px;transition:border-color 0.15s,background 0.15s;}
+.back-btn:hover{border-color:var(--light-blue);background:rgba(88,166,255,0.12);}
+@media(max-width:520px){.header-nav{position:static;justify-content:center;margin-bottom:14px;display:flex;}}
 .header h1{font-size:24px;font-weight:900;color:#e6edf3;margin-bottom:4px}
 .header h1 span{color:var(--light-blue)}
 .header-date{color:var(--text-muted);font-size:13px;margin-bottom:12px}
@@ -102,6 +106,7 @@ footer{background:#0d1117;border-top:1px solid var(--border);color:var(--text-mu
 </head>
 <body>
 <div class="header">
+  <div class="header-nav"><a class="back-btn" href="index.html">← 목록으로</a></div>
   <h1>📰 한국경제 <span>시황 브리핑</span></h1>
   <div class="header-date">2026년 8월 22일 (토) — 8/22(토)자 조간 기준 — 직전 거래일 8/21(금) 마감 반영. 삼성전자 110조원 사상 최대 주주환원에 코스피는 올랐지만, 반도체로의 수급 쏠림에 코스닥은 급락했다. 내일(8/23, 일)은 신문 휴간이며 다음 거래일은 8/24(월)이다.</div>
   
