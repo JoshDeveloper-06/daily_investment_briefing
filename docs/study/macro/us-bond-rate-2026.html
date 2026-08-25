@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0d1117;--card:#161b22;--card-alt:#1c2128;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#388bfd;--light-blue:#58a6ff;--green:#3fb950;--red:#ff6b6b;--orange:#ff9800;}
+:root{--bg:#0d1117;--card:#161b22;--card-alt:#1c2128;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#388bfd;--light-blue:#58a6ff;--green:#3fb950;--red:#ff6b6b;--orange:#ff9800;--em:#f0c674;--code:#ffa657;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.6;min-height:100vh;}
 .header{background:linear-gradient(135deg,#0d1117 0%,#1f3a5f 100%);padding:40px 24px 32px;text-align:center;border-bottom:1px solid var(--border);position:relative;}
@@ -42,36 +42,64 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .note-title{font-size:26px;font-weight:900;line-height:1.35;margin-bottom:10px;}
 .note-summary{font-size:14px;color:var(--text-muted);border-left:3px solid var(--accent);padding:6px 0 6px 14px;margin-bottom:14px;}
 .note-meta{font-size:11.5px;color:var(--text-muted);display:flex;flex-wrap:wrap;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--border);}
-.toc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin:20px 0 26px;}
-.toc-title{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;}
+.toc{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:0 10px 10px 0;padding:14px 18px;margin:20px 0 28px;}
+.toc-title{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--light-blue);text-transform:uppercase;margin-bottom:8px;}
 .toc ol{margin:0;padding-left:18px;}
-.toc li{font-size:13px;margin:3px 0;}
+.toc li{font-size:13px;margin:4px 0;}
+.toc li::marker{color:var(--text-muted);}
 .toc a{color:var(--text);text-decoration:none;}
 .toc a:hover{color:var(--light-blue);}
-.body h2{font-size:19px;font-weight:800;margin:34px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--border);scroll-margin-top:16px;}
-.body h3{font-size:15.5px;font-weight:700;margin:22px 0 8px;color:var(--light-blue);}
-.body h4{font-size:14px;font-weight:700;margin:16px 0 6px;}
+/* 제목은 왼쪽 색 막대로 구간을 끊어 준다. 밑줄만 있으면 스크롤할 때
+   본문과 구분이 잘 안 된다(글이 길수록 심하다). */
+.body h2{font-size:19.5px;font-weight:800;margin:36px 0 13px;padding:1px 0 8px 13px;
+  border-bottom:1px solid var(--border);border-left:4px solid var(--accent);scroll-margin-top:16px;}
+.body h3{font-size:15.5px;font-weight:700;margin:24px 0 8px;color:var(--light-blue);}
+.body h4{font-size:14px;font-weight:700;margin:16px 0 6px;color:var(--text);}
 .body p{margin:11px 0;}
+/* 첫 h2(보통 '한 줄 요약') 바로 뒤 문단은 리드문이라 조금 키운다 */
+.body>h2:first-of-type+p{font-size:15.5px;line-height:1.8;}
 .body ul,.body ol{margin:11px 0 11px 22px;}
-.body li{margin:5px 0;}
-.body a{color:var(--light-blue);}
-.body code{background:var(--card-alt);border:1px solid var(--border);border-radius:4px;padding:1px 5px;font-size:12.5px;font-family:ui-monospace,Menlo,Consolas,monospace;}
-.body pre{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:13px 16px;overflow-x:auto;margin:14px 0;}
-.body pre code{background:none;border:none;padding:0;font-size:12.5px;line-height:1.65;}
-.body blockquote{border-left:3px solid var(--border);color:var(--text-muted);padding:2px 0 2px 14px;margin:14px 0;}
+.body li{margin:6px 0;}
+.body li::marker{color:var(--light-blue);}
+.body ol li::marker{font-weight:700;}
+.body a{color:var(--light-blue);text-underline-offset:2px;}
+/* ── 강조 ── 굵게가 본문과 같은 흰색이면 56군데를 굵게 써도 아무것도 눈에 안 띈다 */
+.body strong{color:var(--em);font-weight:700;}
+.body h2 strong,.body h3 strong,.body h4 strong,.body a strong{color:inherit;}
+.body mark{background:rgba(240,198,116,0.16);color:var(--em);
+  padding:1px 5px;border-radius:3px;font-weight:600;}
+.body em{color:var(--text-muted);font-style:normal;border-bottom:1px dotted var(--border);}
+.body code{background:rgba(255,166,87,0.10);border:1px solid rgba(255,166,87,0.24);color:var(--code);
+  border-radius:4px;padding:1px 5px;font-size:12.5px;font-family:ui-monospace,Menlo,Consolas,monospace;}
+.body pre{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);
+  border-radius:8px;padding:13px 16px;overflow-x:auto;margin:16px 0;}
+.body pre code{background:none;border:none;padding:0;color:var(--text);font-size:12.5px;line-height:1.7;}
+.body blockquote{border-left:3px solid var(--accent);background:rgba(56,139,253,0.06);
+  color:var(--text-muted);padding:10px 15px;margin:16px 0;border-radius:0 8px 8px 0;}
+.body blockquote strong{color:var(--light-blue);}
 .body hr{border:none;border-top:1px solid var(--border);margin:26px 0;}
 /* 표 스타일은 반드시 .table-wrap 안으로 한정한다.
    lightweight-charts가 차트 컨테이너 안에 자체 <table>을 만들기 때문에,
    '.body table' 로 잡으면 차트 내부 표까지 min-width/border가 먹어 차트가 눌린다
    (2026-08-13 실측: 680px 컨테이너 안에서 차트가 460px로 줄어들었다). */
-.table-wrap{overflow-x:auto;margin:14px 0;}
+.table-wrap{overflow-x:auto;margin:16px 0;border-radius:8px;border:1px solid var(--border);}
 .table-wrap table{border-collapse:collapse;width:100%;font-size:12.5px;min-width:460px;}
-.table-wrap th,.table-wrap td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top;}
-.table-wrap th{background:var(--card-alt);font-weight:700;white-space:nowrap;}
+.table-wrap th,.table-wrap td{border:1px solid var(--border);padding:9px 11px;text-align:left;vertical-align:top;}
+/* 머리행은 파랑으로 띄워 표의 시작을 분명히 한다 */
+.table-wrap th{background:var(--card-alt);color:var(--light-blue);font-weight:700;white-space:nowrap;
+  border-bottom:2px solid rgba(56,139,253,0.4);}
+/* 첫 열은 대개 항목 이름이라 살짝 강조하면 가로로 읽기 쉬워진다 */
+.table-wrap tbody td:first-child{font-weight:600;}
 .table-wrap tbody tr:nth-child(even){background:rgba(255,255,255,0.02);}
-.cbox{border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin:18px 0;background:var(--card);}
-.cbox-head{font-size:13px;font-weight:700;margin-bottom:6px;}
+.table-wrap tbody tr:hover{background:rgba(88,166,255,0.07);}
+.table-wrap strong{color:var(--em);}
+.cbox{border:1px solid var(--border);border-left-width:4px;border-radius:0 10px 10px 0;
+  padding:14px 18px;margin:20px 0;background:var(--card);}
+.cbox-head{font-size:13px;font-weight:700;margin-bottom:6px;letter-spacing:0.2px;}
 .cbox p{margin:7px 0;font-size:13px;}
+/* 박스 안에서는 머리말 색이 이미 강하다. 굵게까지 앰버로 두면 색이 겹쳐 탁해진다 */
+.cbox strong{color:var(--text);}
 .cbox.warn{border-color:rgba(255,152,0,0.45);background:rgba(255,152,0,0.07);}
 .cbox.warn .cbox-head{color:var(--orange);}
 .cbox.fail{border-color:rgba(255,107,107,0.45);background:rgba(255,107,107,0.07);}
@@ -130,7 +158,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 <li>공급이 늘어 가격이 95만원으로 떨어져도 1년 후 받는 돈은 105만원으로 고정이다.</li>
 <li>이때 수익률 = (105 − 95) / 95 ≈ 10.5%로 올라간다.</li>
 </ul>
-<p><strong>가격이 내려가면 수익률이 올라간다. 동전의 양면이다.</strong></p>
+<p><mark>가격이 내려가면 수익률이 올라간다. 동전의 양면이다.</mark></p>
 <p>국채 발행이 늘어나면 같은 원리로 시장에 물량이 쏟아지고 → 가격이 떨어지고 → 수익률(금리)이 올라간다.</p>
 <h2 id="h4">왜 이번엔 이례적인가 — 경기 둔화 + 금리 상승 동시 발생</h2>
 <p>보통 경기가 나빠지면 금리는 <strong>떨어진다</strong>. 중앙은행이 완화적으로 움직일 거란 기대 때문이다. 그런데 지금은 경기 지표가 전부 부진한데도 금리가 오르고 있다.</p>
