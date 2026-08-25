@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>자기진단과 매매원칙 템플릿 — 채워 넣는 문서 · 주식공부</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1117;--card:#161b22;--card-alt:#1c2128;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#388bfd;--light-blue:#58a6ff;--green:#3fb950;--red:#ff6b6b;--orange:#ff9800;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.6;min-height:100vh;}
+.header{background:linear-gradient(135deg,#0d1117 0%,#1f3a5f 100%);padding:40px 24px 32px;text-align:center;border-bottom:1px solid var(--border);position:relative;}
+.header-logo{font-size:12px;font-weight:500;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;}
+.header h1{font-size:28px;font-weight:900;color:var(--text);margin-bottom:8px;}
+.header h1 span{color:var(--light-blue);}
+.header-desc{color:var(--text-muted);font-size:14px;}
+.header-nav{position:absolute;top:16px;left:16px;}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:var(--card-alt);border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:7px 12px;border-radius:8px;transition:border-color 0.15s,background 0.15s;}
+.back-btn:hover{border-color:var(--light-blue);background:rgba(88,166,255,0.12);}
+.container{max-width:720px;margin:0 auto;padding:32px 20px;}
+.crumb{font-size:12px;color:var(--text-muted);margin-bottom:16px;}
+.crumb a{color:var(--text-muted);text-decoration:none;}
+.crumb a:hover{color:var(--light-blue);}
+.section-title{font-size:13px;font-weight:700;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.card-list{display:flex;flex-direction:column;gap:10px;}
+.card-item{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:var(--text);transition:border-color 0.15s,background 0.15s;}
+.card-item:hover{border-color:var(--light-blue);background:var(--card-alt);}
+.card-icon{font-size:22px;flex-shrink:0;}
+.card-info{flex:1;min-width:0;}
+.card-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.card-desc{font-size:12.5px;color:var(--text-muted);}
+.card-meta{font-size:11px;color:var(--text-muted);margin-top:5px;}
+.card-arrow{color:var(--text-muted);font-size:18px;transition:transform 0.15s,color 0.15s;}
+.card-item:hover .card-arrow{transform:translateX(4px);color:var(--light-blue);}
+.tag{display:inline-block;font-size:10.5px;font-weight:600;color:var(--text-muted);background:var(--card-alt);border:1px solid var(--border);border-radius:20px;padding:2px 9px;margin:3px 4px 0 0;}
+.empty{background:var(--card);border:1px dashed var(--border);border-radius:10px;padding:28px 20px;text-align:center;color:var(--text-muted);font-size:13px;}
+.footer{margin-top:48px;text-align:center;font-size:12px;color:var(--text-muted);padding-bottom:32px;}
+@media(max-width:520px){.header-nav{position:static;justify-content:center;margin-bottom:14px;display:flex;}}
+
+.note-head{margin-bottom:8px;}
+.note-title{font-size:26px;font-weight:900;line-height:1.35;margin-bottom:10px;}
+.note-summary{font-size:14px;color:var(--text-muted);border-left:3px solid var(--accent);padding:6px 0 6px 14px;margin-bottom:14px;}
+.note-meta{font-size:11.5px;color:var(--text-muted);display:flex;flex-wrap:wrap;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.toc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin:20px 0 26px;}
+.toc-title{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;}
+.toc ol{margin:0;padding-left:18px;}
+.toc li{font-size:13px;margin:3px 0;}
+.toc a{color:var(--text);text-decoration:none;}
+.toc a:hover{color:var(--light-blue);}
+.body h2{font-size:19px;font-weight:800;margin:34px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--border);scroll-margin-top:16px;}
+.body h3{font-size:15.5px;font-weight:700;margin:22px 0 8px;color:var(--light-blue);}
+.body h4{font-size:14px;font-weight:700;margin:16px 0 6px;}
+.body p{margin:11px 0;}
+.body ul,.body ol{margin:11px 0 11px 22px;}
+.body li{margin:5px 0;}
+.body a{color:var(--light-blue);}
+.body code{background:var(--card-alt);border:1px solid var(--border);border-radius:4px;padding:1px 5px;font-size:12.5px;font-family:ui-monospace,Menlo,Consolas,monospace;}
+.body pre{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:13px 16px;overflow-x:auto;margin:14px 0;}
+.body pre code{background:none;border:none;padding:0;font-size:12.5px;line-height:1.65;}
+.body blockquote{border-left:3px solid var(--border);color:var(--text-muted);padding:2px 0 2px 14px;margin:14px 0;}
+.body hr{border:none;border-top:1px solid var(--border);margin:26px 0;}
+/* 표 스타일은 반드시 .table-wrap 안으로 한정한다.
+   lightweight-charts가 차트 컨테이너 안에 자체 <table>을 만들기 때문에,
+   '.body table' 로 잡으면 차트 내부 표까지 min-width/border가 먹어 차트가 눌린다
+   (2026-08-13 실측: 680px 컨테이너 안에서 차트가 460px로 줄어들었다). */
+.table-wrap{overflow-x:auto;margin:14px 0;}
+.table-wrap table{border-collapse:collapse;width:100%;font-size:12.5px;min-width:460px;}
+.table-wrap th,.table-wrap td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top;}
+.table-wrap th{background:var(--card-alt);font-weight:700;white-space:nowrap;}
+.table-wrap tbody tr:nth-child(even){background:rgba(255,255,255,0.02);}
+.cbox{border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin:18px 0;background:var(--card);}
+.cbox-head{font-size:13px;font-weight:700;margin-bottom:6px;}
+.cbox p{margin:7px 0;font-size:13px;}
+.cbox.warn{border-color:rgba(255,152,0,0.45);background:rgba(255,152,0,0.07);}
+.cbox.warn .cbox-head{color:var(--orange);}
+.cbox.fail{border-color:rgba(255,107,107,0.45);background:rgba(255,107,107,0.07);}
+.cbox.fail .cbox-head{color:var(--red);}
+.cbox.ok{border-color:rgba(63,185,80,0.45);background:rgba(63,185,80,0.07);}
+.cbox.ok .cbox-head{color:var(--green);}
+.cbox.info{border-color:rgba(88,166,255,0.45);background:rgba(88,166,255,0.07);}
+.cbox.info .cbox-head{color:var(--light-blue);}
+.chart-fig{margin:20px 0;}
+.chart-wrap{background:#1a1a1f;border-radius:12px;padding:12px;position:relative;width:100%;height:420px;}
+.chart-cap{font-size:12px;color:var(--text-muted);margin-top:8px;text-align:center;}
+.disclaimer{border:1px solid var(--border);border-left:3px solid var(--text-muted);border-radius:8px;background:var(--card);padding:13px 17px;margin:28px 0 0;font-size:12.5px;color:var(--text-muted);}
+.disclaimer strong{color:var(--text);display:block;margin-bottom:5px;font-size:13px;}
+.sources{margin-top:30px;}
+.sources ol{margin:10px 0 0 20px;}
+.sources li{font-size:12.5px;color:var(--text-muted);margin:6px 0;}
+.sources a{color:var(--light-blue);}
+.note-nav{display:flex;gap:10px;margin-top:32px;}
+.note-nav a{flex:1;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 16px;text-decoration:none;color:var(--text);font-size:13px;transition:border-color 0.15s;}
+.note-nav a:hover{border-color:var(--light-blue);}
+.note-nav .lbl{display:block;font-size:10.5px;color:var(--text-muted);margin-bottom:3px;}
+@media(max-width:520px){.note-title{font-size:21px;}.note-nav{flex-direction:column;}.chart-wrap{height:320px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-nav"><a class="back-btn" href="index.html">← 투자심법·멘탈</a></div>
+  <div class="header-logo">Study Note</div>
+  <h1>주식공부 <span>투자심법·멘탈</span></h1>
+  <div class="header-desc">읽고 끝나는 글이 아니라 실제로 채우는 도구. 나는 어떤 투자자인지 7문항으로 진단하고, 종목마다 진입 근거·아이디어 훼손 조</div>
+</div>
+<div class="container">
+  <div class="crumb"><a href="../../index.html">시황 브리핑</a> ›
+    <a href="../index.html">주식공부</a> ›
+    <a href="index.html">투자심법·멘탈</a></div>
+  <div class="note-head">
+    <div class="note-title">자기진단과 매매원칙 템플릿 — 채워 넣는 문서</div>
+    <div class="note-summary">읽고 끝나는 글이 아니라 실제로 채우는 도구. 나는 어떤 투자자인지 7문항으로 진단하고, 종목마다 진입 근거·아이디어 훼손 조건·손절가를 문서로 못 박는다.</div>
+    <div class="note-meta"><span>갱신 2026-08-25</span><span>난이도 초급</span><span>읽는 데 약 8분</span></div>
+    <div><span class="tag">#매매원칙</span><span class="tag">#자기진단</span><span class="tag">#손절가</span><span class="tag">#아이디어훼손</span><span class="tag">#체크리스트</span><span class="tag">#복기</span></div>
+  </div>
+  <div class="toc"><div class="toc-title">목차</div><ol><li><a href="#h1">한 줄 요약</a></li><li><a href="#h2">왜 문서로 적어야 하는가</a></li><li><a href="#h3">1부 — 자기진단 7문항</a></li><li><a href="#h4">2부 — 진단 결과와 전략의 궁합</a></li><li><a href="#h5">3부 — 종목별 매매원칙 템플릿</a></li><li><a href="#h6">4부 — 점검 루틴</a></li><li><a href="#h7">지금 나의 상태 (진행 중)</a></li><li><a href="#h8">함께 볼 글</a></li></ol></div>
+  <div class="body">
+<h2 id="h1">한 줄 요약</h2>
+<p><a href="investing-mindset.html">심법 글</a>의 결론은 "원칙을 세우고 지켜라"였다. 이 문서는 그 원칙을 <strong>실제로 적어 넣는 자리</strong>다. 읽지 말고 채워라.</p>
+<h2 id="h2">왜 문서로 적어야 하는가</h2>
+<p>머릿속에 있는 원칙은 원칙이 아니다. 주가가 움직이는 순간 조용히 바뀌기 때문이다.</p>
+<p>Odean의 연구가 보여준 처분효과 — 오른 건 빨리 팔고 떨어진 건 못 파는 편향 — 는 의지로 이기는 게 아니라 <strong>구조로 막는 것</strong>이다. 미리 적어둔 문장 하나가 그 구조다. 손실이 난 뒤에 정하는 손절가는 손절가가 아니라 희망 사항이다.</p>
+<div class="cbox warn"><div class="cbox-head">⚠️ 주의</div>
+<p>이 문서를 채우는 시점은 <strong>매수 전</strong>이다. 이미 보유 중인 종목이라면 지금 채우되, "지금 이 종목을 처음 본다면 살 것인가"를 기준으로 쓴다. 물타기를 정당화하는 문서가 되면 안 쓰느니만 못하다.</p>
+</div>
+<h2 id="h3">1부 — 자기진단 7문항</h2>
+<p>정답은 없다. <strong>솔직한 답만 의미가 있다.</strong> 답을 적고, 그 답이 지금 내 매매 방식과 맞는지 대조한다.</p>
+<div class="table-wrap"><table><thead><tr><th>번호</th><th>질문</th><th>내 답</th></tr></thead><tbody><tr><td>1</td><td>손실을 몇 %까지 견딜 수 있는가? 그 아래로 가면 어떻게 되는가?</td><td></td></tr><tr><td>2</td><td>몇 개월간 수익이 없어도 전략을 유지할 수 있는가?</td><td></td></tr><tr><td>3</td><td>기업의 실적과 산업을 공부하는 게 재미있는가?</td><td></td></tr><tr><td>4</td><td>차트의 가격 움직임을 보는 게 더 편한가?</td><td></td></tr><tr><td>5</td><td>빠른 손절을 반복해도 멘탈이 유지되는가?</td><td></td></tr><tr><td>6</td><td>장기간 보유하며 가치 실현을 기다릴 수 있는가?</td><td></td></tr><tr><td>7</td><td><strong>돈이 걸린 상황에서도 내가 정한 원칙을 지킬 수 있는가?</strong></td><td></td></tr></tbody></table></div>
+<p>7번이 가장 중요하고 가장 검증하기 어렵다. 과거의 실제 매매를 근거로 답한다. "지킬 수 있다"가 아니라 "지난번에 지켰다/못 지켰다"로.</p>
+<h3>내 진단 (2026-08 기준)</h3>
+<p>솔직하게 남겨둔다.</p>
+<ul>
+<li><strong>1번</strong> — -8~-10%까지는 견딘다. 최대로 잡아도 -20%. 그 아래로 가면 손절이 아니라 기도 상태가 된다.</li>
+<li><strong>7번</strong> — <strong>못 지킨 적이 있다.</strong> 보유 종목 A(증권업)와 B(발전설비)에서 손절 원칙을 세우지 못했고, 지키지도 못했다. 원인은 원칙의 부재가 아니라 <strong>점검의 부재</strong>였다. 관리가 아니라 방치였다.</li>
+</ul>
+<p>이 진단이 아래 규칙의 출발점이다.</p>
+<h2 id="h4">2부 — 진단 결과와 전략의 궁합</h2>
+<p>성향과 전략이 어긋나면, 전략이 나빠서가 아니라 <strong>실행이 안 돼서</strong> 실패한다. 자기 답과 대조해본다.</p>
+<div class="table-wrap"><table><thead><tr><th>이런 성향이면</th><th>잘 맞는 쪽</th><th>피해야 할 쪽</th></tr></thead><tbody><tr><td>손실 감내가 작고(5% 내외) 빠른 손절이 괜찮다</td><td>추세추종, 단기매매</td><td>저평가 장기 보유 (물릴 때 감내 범위를 넘긴다)</td></tr><tr><td>손실 감내가 크고 오래 기다릴 수 있다</td><td>가치투자, 장기 보유</td><td>잦은 손절이 필요한 전략</td></tr><tr><td>기업 공부가 재미있다</td><td>가치투자, 기업분석 기반</td><td>차트만 보는 단타</td></tr><tr><td>차트를 보는 게 편하다</td><td>추세추종, 기술적 매매</td><td>몇 년을 기다리는 밸류 접근</td></tr><tr><td>연속 손실에 멘탈이 흔들린다</td><td>분산·퀀트·적립식</td><td>터틀형 추세추종 (8~12연속 손실이 정상 범위다)</td></tr><tr><td>매매를 자주 하고 싶다</td><td>단기·스윙</td><td>연 몇 회 매매하는 장기 전략</td></tr></tbody></table></div>
+<div class="cbox info"><div class="cbox-head">💡 참고</div>
+<p>표에서 내 성향이 <strong>여러 줄에 걸쳐 있다면</strong> 그것 자체가 위험 신호다. 심법 글에서 다룬 <strong>전략 표류</strong>가 일어나기 쉬운 조건이기 때문이다. 하나를 고르고, 고른 전략의 약점을 감당하기로 결정해야 한다.</p>
+</div>
+<h2 id="h5">3부 — 종목별 매매원칙 템플릿</h2>
+<p><strong>종목 하나당 한 장.</strong> 매수 전에 채우고, 채우지 못하면 사지 않는다.</p>
+<div class="table-wrap"><table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>종목명 / 매수일</td><td></td></tr><tr><td><strong>전략 분류</strong></td><td>추세추종 · 가치투자 · 스윙 · 기타 (하나만 고른다)</td></tr><tr><td><strong>진입 근거 (A)</strong></td><td>왜 지금 사는가. 한 문장으로</td></tr><tr><td>투자 포인트</td><td>무슨 일이 일어나면 이 판단이 맞는 것인가</td></tr><tr><td><strong>아이디어 훼손 조건</strong></td><td>무슨 일이 일어나면 내 판단이 틀린 것인가</td></tr><tr><td>손절가 / 근거</td><td>가격과 그 가격을 고른 이유 (지지선·이평선·매수가 대비 %)</td></tr><tr><td>익절 계획</td><td>1차 목표가와 비중, 2차 목표가와 비중</td></tr><tr><td>최대 비중</td><td>이 종목에 넣을 수 있는 최대 %</td></tr><tr><td>점검 주기</td><td>매일 · 주 1회 · 월 1회</td></tr><tr><td>다음 점검일</td><td></td></tr></tbody></table></div>
+<h3>각 칸을 채우는 법</h3>
+<p><strong>전략 분류</strong> — 이 칸이 표류를 막는 장치다. 나중에 매도를 고민할 때 <strong>이 칸에 적힌 전략의 기준으로만</strong> 판정한다. 추세추종으로 적었다면 실적이 좋다는 이유로 손절을 미루지 않는다.</p>
+<p><strong>진입 근거 (A)</strong> — 반드시 한 문장. 길어지면 근거가 여러 개라는 뜻이고, 근거가 여러 개면 나중에 그중 하나를 골라 합리화하기 쉬워진다.</p>
+<p><strong>아이디어 훼손 조건</strong> — 이 문서의 심장이다. 손절가와는 다르다. 손절가는 가격이고, 훼손 조건은 <strong>사실</strong>이다.</p>
+<ul>
+<li>좋은 예: "3분기 수주 잔고가 전년 대비 감소하면", "경쟁사가 동일 스펙 제품을 출시하면", "주가가 반등 저점을 종가로 이탈하면"</li>
+<li>나쁜 예: "회사가 나빠지면" (판정이 불가능하다)</li>
+</ul>
+<p>훼손 조건이 충족되면 손절가에 닿지 않았어도 매도를 검토한다. 반대로 훼손 조건이 멀쩡한데 가격만 빠졌다면, 그건 손절가가 할 일이다. 두 장치는 서로 다른 것을 잡는다.</p>
+<p><strong>손절가</strong> — 매수 전에 정한다. 그리고 근거를 함께 적는다. 근거 없이 "-10%"라고만 적으면 막상 -10%에서 "이번엔 예외"라는 생각이 든다.</p>
+<div class="cbox fail"><div class="cbox-head">❌ 실패 사례</div>
+<p>가장 흔한 실패는 손절가를 정해놓고 <strong>막상 닿았을 때 새 이유를 만들어내는 것</strong>이다. 그래서 진입 근거를 한 문장으로 제한한다. 새 이유가 떠올랐다면 그건 새 매수 판단이지 기존 보유의 연장이 아니다. 굳이 계속 들고 싶다면 일단 팔고, 새 근거로 다시 사는 게 정직하다.</p>
+</div>
+<h2 id="h6">4부 — 점검 루틴</h2>
+<p>홀딩력은 매일 갱신되는 확신이라고 했다. 직장인이 매일 딥 리서치를 할 수는 없으니, <strong>주기별로 볼 것을 나눈다.</strong></p>
+<div class="table-wrap"><table><thead><tr><th>주기</th><th>볼 것</th></tr></thead><tbody><tr><td>매일 (5분)</td><td>손절가·훼손 조건에 걸린 종목이 있는가. 그것만 본다</td></tr><tr><td>주 1회 (30분)</td><td>투자 포인트 진행 상황, 관련 뉴스, 시장이 알아주고 있는지</td></tr><tr><td>월 1회 (1시간)</td><td>기회비용 점검 — 지금도 이 종목이 내 선택지 중 최선인가</td></tr><tr><td>실적 시즌</td><td>투자 포인트가 실적으로 확인됐는가. 훼손 조건 재검토</td></tr><tr><td>매도 후</td><td>복기 — 전략대로 했는가. 결과와 과정을 분리해서 평가한다</td></tr></tbody></table></div>
+<p><strong>매도 후 복기가 가장 중요하다.</strong> 그리고 복기의 기준은 수익이 아니라 <strong>원칙 준수 여부</strong>여야 한다.</p>
+<div class="table-wrap"><table><thead><tr><th></th><th>원칙을 지켰다</th><th>원칙을 어겼다</th></tr></thead><tbody><tr><td><strong>수익</strong></td><td>최선 — 반복할 것</td><td>가장 위험 — 나쁜 습관이 보상받았다</td></tr><tr><td><strong>손실</strong></td><td>정상 — 전략의 비용이다</td><td>최악 — 그러나 가장 배울 게 많다</td></tr></tbody></table></div>
+<p>오른쪽 위 칸을 조심해야 한다. 원칙을 어겼는데 돈을 벌면 그 행동이 강화된다. 다음번에 같은 방식으로 크게 잃는다.</p>
+<h2 id="h7">지금 나의 상태 (진행 중)</h2>
+<p>보유 종목 A와 B는 아직 정리하지 못한 상태다. 결과가 어떻게 될지는 모른다.</p>
+<p>다만 앞으로 신규 매수하는 종목부터는 3부 템플릿을 채우고 사기로 한다. 기존 보유 종목에 대해서도 "지금 처음 본다면 살 것인가"를 기준으로 템플릿을 소급 작성하고, 채워지지 않는 칸이 있으면 그게 곧 정리 신호로 본다.</p>
+<p>이 문서가 실제로 작동했는지는 몇 개월 뒤 복기로 확인해야 알 수 있다.</p>
+<h2 id="h8">함께 볼 글</h2>
+<ul>
+<li><a href="investing-mindset.html">심법 — 판단력·베팅력·홀딩력, 그리고 나를 아는 일</a> — 이 템플릿이 나온 배경</li>
+<li><a href="../technical/follow-through-day.html">팔로스루 데이</a> — "실패를 미리 정의해 두기" 절. 아이디어 훼손 조건을 지수 신호 하나에 적용한 사례</li>
+</ul>
+<div class="disclaimer"><strong>📌 읽기 전에</strong><p>이 글은 개인 공부 기록이며 투자 자문이 아닙니다. 특정 종목의 매수·매도를 권유하지 않습니다. 여기 실린 지표와 규칙은 확률적 신호일 뿐 결과를 보장하지 않으며, 투자 판단과 그 결과는 투자자 본인에게 귀속됩니다.</p></div>
+  </div>
+  <div class="sources"><div class="section-title">출처</div><ol><li>주식 투자가 어려운 이유는 똑똑하지 않아서가 아니다 (깡토 (네이버 블로그)) — <a href="https://blog.naver.com/love392722/224382468344" target="_blank" rel="noopener">https://blog.naver.com/love392722/224382468344</a></li><li>투자의 자질 1편 : 홀딩력 (미생 (네이버 블로그)) — <a href="https://blog.naver.com/firelifestyle/224384497927" target="_blank" rel="noopener">https://blog.naver.com/firelifestyle/224384497927</a></li><li>Are Investors Reluctant to Realize Their Losses? (Odean, 1998, Journal of Finance) (UC Berkeley Haas) — <a href="https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/areinvestorsreluctant.pdf" target="_blank" rel="noopener">https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/ar</a></li></ol></div>
+  <div class="note-nav"><a href="investing-mindset.html"><span class="lbl">← 이전 글</span>심법 — 판단력·베팅력·홀딩력, 그리고 나를 아는 일</a></div>
+  <div class="footer">powered by Claude · 주식공부 노트</div>
+</div>
+
+
+</body>
+</html>

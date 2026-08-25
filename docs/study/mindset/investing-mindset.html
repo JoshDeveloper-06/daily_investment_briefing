@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>심법 — 판단력·베팅력·홀딩력, 그리고 나를 아는 일 · 주식공부</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1117;--card:#161b22;--card-alt:#1c2128;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#388bfd;--light-blue:#58a6ff;--green:#3fb950;--red:#ff6b6b;--orange:#ff9800;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.6;min-height:100vh;}
+.header{background:linear-gradient(135deg,#0d1117 0%,#1f3a5f 100%);padding:40px 24px 32px;text-align:center;border-bottom:1px solid var(--border);position:relative;}
+.header-logo{font-size:12px;font-weight:500;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;}
+.header h1{font-size:28px;font-weight:900;color:var(--text);margin-bottom:8px;}
+.header h1 span{color:var(--light-blue);}
+.header-desc{color:var(--text-muted);font-size:14px;}
+.header-nav{position:absolute;top:16px;left:16px;}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:var(--card-alt);border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:7px 12px;border-radius:8px;transition:border-color 0.15s,background 0.15s;}
+.back-btn:hover{border-color:var(--light-blue);background:rgba(88,166,255,0.12);}
+.container{max-width:720px;margin:0 auto;padding:32px 20px;}
+.crumb{font-size:12px;color:var(--text-muted);margin-bottom:16px;}
+.crumb a{color:var(--text-muted);text-decoration:none;}
+.crumb a:hover{color:var(--light-blue);}
+.section-title{font-size:13px;font-weight:700;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.card-list{display:flex;flex-direction:column;gap:10px;}
+.card-item{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:var(--text);transition:border-color 0.15s,background 0.15s;}
+.card-item:hover{border-color:var(--light-blue);background:var(--card-alt);}
+.card-icon{font-size:22px;flex-shrink:0;}
+.card-info{flex:1;min-width:0;}
+.card-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.card-desc{font-size:12.5px;color:var(--text-muted);}
+.card-meta{font-size:11px;color:var(--text-muted);margin-top:5px;}
+.card-arrow{color:var(--text-muted);font-size:18px;transition:transform 0.15s,color 0.15s;}
+.card-item:hover .card-arrow{transform:translateX(4px);color:var(--light-blue);}
+.tag{display:inline-block;font-size:10.5px;font-weight:600;color:var(--text-muted);background:var(--card-alt);border:1px solid var(--border);border-radius:20px;padding:2px 9px;margin:3px 4px 0 0;}
+.empty{background:var(--card);border:1px dashed var(--border);border-radius:10px;padding:28px 20px;text-align:center;color:var(--text-muted);font-size:13px;}
+.footer{margin-top:48px;text-align:center;font-size:12px;color:var(--text-muted);padding-bottom:32px;}
+@media(max-width:520px){.header-nav{position:static;justify-content:center;margin-bottom:14px;display:flex;}}
+
+.note-head{margin-bottom:8px;}
+.note-title{font-size:26px;font-weight:900;line-height:1.35;margin-bottom:10px;}
+.note-summary{font-size:14px;color:var(--text-muted);border-left:3px solid var(--accent);padding:6px 0 6px 14px;margin-bottom:14px;}
+.note-meta{font-size:11.5px;color:var(--text-muted);display:flex;flex-wrap:wrap;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.toc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin:20px 0 26px;}
+.toc-title{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;}
+.toc ol{margin:0;padding-left:18px;}
+.toc li{font-size:13px;margin:3px 0;}
+.toc a{color:var(--text);text-decoration:none;}
+.toc a:hover{color:var(--light-blue);}
+.body h2{font-size:19px;font-weight:800;margin:34px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--border);scroll-margin-top:16px;}
+.body h3{font-size:15.5px;font-weight:700;margin:22px 0 8px;color:var(--light-blue);}
+.body h4{font-size:14px;font-weight:700;margin:16px 0 6px;}
+.body p{margin:11px 0;}
+.body ul,.body ol{margin:11px 0 11px 22px;}
+.body li{margin:5px 0;}
+.body a{color:var(--light-blue);}
+.body code{background:var(--card-alt);border:1px solid var(--border);border-radius:4px;padding:1px 5px;font-size:12.5px;font-family:ui-monospace,Menlo,Consolas,monospace;}
+.body pre{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:13px 16px;overflow-x:auto;margin:14px 0;}
+.body pre code{background:none;border:none;padding:0;font-size:12.5px;line-height:1.65;}
+.body blockquote{border-left:3px solid var(--border);color:var(--text-muted);padding:2px 0 2px 14px;margin:14px 0;}
+.body hr{border:none;border-top:1px solid var(--border);margin:26px 0;}
+/* 표 스타일은 반드시 .table-wrap 안으로 한정한다.
+   lightweight-charts가 차트 컨테이너 안에 자체 <table>을 만들기 때문에,
+   '.body table' 로 잡으면 차트 내부 표까지 min-width/border가 먹어 차트가 눌린다
+   (2026-08-13 실측: 680px 컨테이너 안에서 차트가 460px로 줄어들었다). */
+.table-wrap{overflow-x:auto;margin:14px 0;}
+.table-wrap table{border-collapse:collapse;width:100%;font-size:12.5px;min-width:460px;}
+.table-wrap th,.table-wrap td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top;}
+.table-wrap th{background:var(--card-alt);font-weight:700;white-space:nowrap;}
+.table-wrap tbody tr:nth-child(even){background:rgba(255,255,255,0.02);}
+.cbox{border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin:18px 0;background:var(--card);}
+.cbox-head{font-size:13px;font-weight:700;margin-bottom:6px;}
+.cbox p{margin:7px 0;font-size:13px;}
+.cbox.warn{border-color:rgba(255,152,0,0.45);background:rgba(255,152,0,0.07);}
+.cbox.warn .cbox-head{color:var(--orange);}
+.cbox.fail{border-color:rgba(255,107,107,0.45);background:rgba(255,107,107,0.07);}
+.cbox.fail .cbox-head{color:var(--red);}
+.cbox.ok{border-color:rgba(63,185,80,0.45);background:rgba(63,185,80,0.07);}
+.cbox.ok .cbox-head{color:var(--green);}
+.cbox.info{border-color:rgba(88,166,255,0.45);background:rgba(88,166,255,0.07);}
+.cbox.info .cbox-head{color:var(--light-blue);}
+.chart-fig{margin:20px 0;}
+.chart-wrap{background:#1a1a1f;border-radius:12px;padding:12px;position:relative;width:100%;height:420px;}
+.chart-cap{font-size:12px;color:var(--text-muted);margin-top:8px;text-align:center;}
+.disclaimer{border:1px solid var(--border);border-left:3px solid var(--text-muted);border-radius:8px;background:var(--card);padding:13px 17px;margin:28px 0 0;font-size:12.5px;color:var(--text-muted);}
+.disclaimer strong{color:var(--text);display:block;margin-bottom:5px;font-size:13px;}
+.sources{margin-top:30px;}
+.sources ol{margin:10px 0 0 20px;}
+.sources li{font-size:12.5px;color:var(--text-muted);margin:6px 0;}
+.sources a{color:var(--light-blue);}
+.note-nav{display:flex;gap:10px;margin-top:32px;}
+.note-nav a{flex:1;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 16px;text-decoration:none;color:var(--text);font-size:13px;transition:border-color 0.15s;}
+.note-nav a:hover{border-color:var(--light-blue);}
+.note-nav .lbl{display:block;font-size:10.5px;color:var(--text-muted);margin-bottom:3px;}
+@media(max-width:520px){.note-title{font-size:21px;}.note-nav{flex-direction:column;}.chart-wrap{height:320px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-nav"><a class="back-btn" href="index.html">← 투자심법·멘탈</a></div>
+  <div class="header-logo">Study Note</div>
+  <h1>주식공부 <span>투자심법·멘탈</span></h1>
+  <div class="header-desc">주식투자에서 가장 중요한 건 좋은 전략을 찾는 게 아니라 내 전략의 약점을 감당할 수 있는지 아는 것이다. 심법을 세 능력으로</div>
+</div>
+<div class="container">
+  <div class="crumb"><a href="../../index.html">시황 브리핑</a> ›
+    <a href="../index.html">주식공부</a> ›
+    <a href="index.html">투자심법·멘탈</a></div>
+  <div class="note-head">
+    <div class="note-title">심법 — 판단력·베팅력·홀딩력, 그리고 나를 아는 일</div>
+    <div class="note-summary">주식투자에서 가장 중요한 건 좋은 전략을 찾는 게 아니라 내 전략의 약점을 감당할 수 있는지 아는 것이다. 심법을 세 능력으로 쪼개고, 가장 흔한 실패 모드인 전략 표류를 행동재무학 연구와 실증 데이터로 뜯어본다.</div>
+    <div class="note-meta"><span>갱신 2026-08-25</span><span>난이도 초중급</span><span>읽는 데 약 16분</span></div>
+    <div><span class="tag">#심법</span><span class="tag">#홀딩력</span><span class="tag">#전략표류</span><span class="tag">#메타인지</span><span class="tag">#처분효과</span><span class="tag">#손절원칙</span></div>
+  </div>
+  <div class="toc"><div class="toc-title">목차</div><ol><li><a href="#h1">한 줄 요약</a></li><li><a href="#h2">심법은 세 가지 능력으로 나뉜다</a></li><li><a href="#h3">홀딩력의 정체 — 가장 오해받는 능력</a></li><li><a href="#h4">냉철함 — 원칙이 감정을 이기게 하는 법</a></li><li><a href="#h5">전략 표류 — 가장 위험한 실패 모드</a></li><li><a href="#h6">홀딩력의 역설 — 처분효과라는 이름</a></li><li><a href="#h7">모든 전략에는 비작동 구간이 있다</a></li><li><a href="#h8">메타인지 — 나는 어떤 투자자인가</a></li><li><a href="#h9">내가 겪은 실패 — 원칙 없이 산 두 종목</a></li><li><a href="#h10">아는 것과 할 수 있는 것은 다르다</a></li></ol></div>
+  <div class="body">
+<h2 id="h1">한 줄 요약</h2>
+<p>투자에서 정말 중요한 질문은 <strong>"어떤 전략이 가장 좋은가"가 아니라 "내가 선택한 전략의 약점을 알고도 감당할 수 있는가"</strong> 이다. 결국 내가 어떤 투자자인지 아는 능력이 가장 중요하다.</p>
+<p>이 글은 두 편의 블로그 글(<a href="https://blog.naver.com/love392722/224382468344" target="_blank" rel="noopener">깡토</a>, <a href="https://blog.naver.com/firelifestyle/224384497927" target="_blank" rel="noopener">미생</a>)을 읽고 정리한 내용을 구조를 바꿔 재배열하고, 원 글에 없던 분석 두 가지(처분효과 연구, 추세추종 실증)를 덧붙인 것이다.</p>
+<h2 id="h2">심법은 세 가지 능력으로 나뉜다</h2>
+<p>"심법"은 뭉뚱그리면 멘탈 관리처럼 들리지만, 실제로는 성격이 다른 세 능력이다. 쪼개야 어디가 약한지 보인다.</p>
+<div class="table-wrap"><table><thead><tr><th>능력</th><th>하는 일</th><th>실패하면</th></tr></thead><tbody><tr><td><strong>판단력</strong></td><td>이 주식이 될지 안 될지 가려낸다</td><td>애초에 안 될 종목을 산다</td></tr><tr><td><strong>베팅력</strong></td><td>판단을 실제 비중으로 옮긴다</td><td>확신한 종목에 1%, 애매한 종목에 20%를 넣는다</td></tr><tr><td><strong>홀딩력</strong></td><td>근거가 유효한 동안 계속 들고 간다</td><td>큰 수익이 될 자리를 3%에서 끊는다</td></tr></tbody></table></div>
+<p>세 능력의 난이도는 같지 않다. 실제 순서는 이렇다.</p>
+<p><strong>매수보다 매도가 어렵고, 매도보다 홀딩이 훨씬 더 어렵다.</strong></p>
+<p>매수는 아직 아무것도 잃지 않은 상태에서 하는 결정이다. 매도는 결과가 확정되는 순간이라 어렵다. 홀딩은 <strong>매일 매도를 참는 결정</strong>이라 가장 어렵다. 한 번의 결단이 아니라 수십 번의 반복된 인내이기 때문이다.</p>
+<p>그리고 모든 큰 수익은 작은 수익에서 시작된다. 수익의 크기를 결정하는 건 진입 시점의 판단력이 아니라 <strong>그 뒤의 확신과 인내심, 그리고 운</strong>이다.</p>
+<h2 id="h3">홀딩력의 정체 — 가장 오해받는 능력</h2>
+<p>홀딩력은 "안 파는 능력"이 아니다. 안 파는 것과 홀딩력은 전혀 다르다. 먼저 <strong>가짜 홀딩</strong> 세 가지에 이름을 붙여 걷어내야 한다.</p>
+<ul>
+<li><strong>무지성 홀딩</strong> — 근거 없이 그냥 들고 있는 것</li>
+<li><strong>비자발적 장기투자</strong> — 손실이 커져서 팔지 못해 장기투자가 되어버린 것</li>
+<li><strong>방치투자</strong> — 사놓고 안 보는 것</li>
+</ul>
+<p>셋 다 겉모습은 홀딩과 똑같다. 계좌에 종목이 그대로 있다. 하지만 안에서 벌어지는 일이 정반대다.</p>
+<p>진짜 홀딩은 <strong>매일 갱신되는 확신</strong>이다. 딥하게 리서치하고, 다른 종목과 비교하고, 그 비교 끝에 "지금도 이게 나에게 가장 좋은 수익률을 줄 종목"이라고 다시 확인해야 홀딩이 지속된다. 확인을 멈추는 순간 그건 방치다.</p>
+<p>매일 갱신해야 할 항목은 다음과 같다.</p>
+<div class="table-wrap"><table><thead><tr><th>점검 항목</th><th>묻는 것</th></tr></thead><tbody><tr><td>투자 포인트</td><td>내가 기대한 일이 실제로 일어나고 있는가?</td></tr><tr><td>시장의 인식</td><td>그 포인트를 시장이 알아차리고 있는가?</td></tr><tr><td>기회비용</td><td>지금도 이게 내가 가진 선택지 중 최선인가?</td></tr><tr><td>심리 상태</td><td>내 마음이 편한가?</td></tr><tr><td><strong>아이디어 훼손</strong></td><td><strong>내가 산 이유가 깨졌는가?</strong></td></tr></tbody></table></div>
+<p>마지막 항목이 가장 중요하다. 아이디어가 훼손됐다면 그건 홀딩할 자리가 아니라 매도할 자리다.</p>
+<div class="cbox warn"><div class="cbox-head">⚠️ 주의</div>
+<p>상황이 바뀌었는데 계속 들고 있는 건 홀딩력이 아니다. 홀딩력은 <strong>근거가 살아 있는 동안</strong> 버티는 능력이지, 근거와 무관하게 버티는 고집이 아니다.</p>
+</div>
+<p>여기서 현실적인 반문이 나온다. 직장인이 매일 딥 리서치를 어떻게 하나? 실적 시즌에만 보거나, 하루 한 번 장 끝나고 보는 게 대부분 아닌가?</p>
+<p>맞다. 그래서 대부분의 개인 투자자는 <strong>홀딩력을 발휘하는 게 아니라 방치하고 있는 것</strong>이다. 이걸 인정하는 게 출발점이다. 시간을 낼 수 없다면 종목 수를 줄이거나, 점검 주기를 현실적으로 정하고 그 주기를 지키는 쪽이 낫다.</p>
+<h2 id="h4">냉철함 — 원칙이 감정을 이기게 하는 법</h2>
+<p>투자에서 좋은 마인드는 낙관도 비관도 아닌 <strong>냉철함</strong>이다. 감정에 좌우되지 않고 미리 정한 원칙에 기반해 행동하고 사고하는 것.</p>
+<p>냉철함이 무너지는 두 가지 전형이 있다.</p>
+<ul>
+<li><strong>종목과 사랑에 빠지기</strong> — 보유 종목의 좋은 뉴스만 눈에 들어오고 나쁜 뉴스는 핑계를 찾게 된다</li>
+<li><strong>뇌동매매</strong> — 급등하는 걸 보고 따라 사고, 급락하는 걸 보고 따라 판다</li>
+</ul>
+<p>둘 다 판단이 아니라 반응이다. 원칙을 미리 종이에 적어두는 이유가 여기 있다. <strong>판단은 장이 열리기 전에 하고, 장중에는 실행만 한다.</strong></p>
+<h2 id="h5">전략 표류 — 가장 위험한 실패 모드</h2>
+<p>여기가 핵심이다. 개인 투자자가 돈을 잃는 가장 흔한 경로는 나쁜 전략을 골라서가 아니라, <strong>전략을 도중에 바꿔서</strong>다.</p>
+<p>증상은 이렇게 나타난다.</p>
+<pre><code>매수     : A라는 이유로 샀다        (예: 추세가 살아났다)
+하락     : B라는 이유를 갖다 붙인다  (예: 그래도 실적이 좋으니까)
+더 하락  : C라는 이유로 버틴다      (예: 배당이라도 받지)
+반등     : A라면 팔아야 하는데 안 판다 (예: 더 갈 것 같은데)</code></pre>
+<p>살 때의 이유와 팔 때의 이유가 다르다. 그리고 그 이유는 <strong>주가가 움직인 뒤에</strong> 만들어진다.</p>
+<p>표류는 양방향으로 일어난다.</p>
+<div class="table-wrap"><table><thead><tr><th>시작</th><th>무슨 일이 생기면</th><th>어디로 표류하나</th></tr></thead><tbody><tr><td>추세추종으로 매수</td><td>주가가 떨어진다</td><td>"실적 좋은 기업이니 괜찮아" → <strong>가치투자로 변신</strong> (손절 회피)</td></tr><tr><td>가치투자로 매수</td><td>주가가 안 오른다</td><td>"소외된 종목은 안 돼" → <strong>추세추종으로 변신</strong> (차트 좋은 종목으로 갈아타기)</td></tr></tbody></table></div>
+<p>왜 이게 치명적인가. 손실 자체보다 더 큰 문제가 있다.</p>
+<p><strong>내가 어떤 전략으로 돈을 벌고 있는지 모르게 된다.</strong> 전략이 뒤섞이면 결과를 전략에 귀속시킬 수 없고, 귀속시킬 수 없으면 개선할 수도 없다. 잘된 매매가 왜 잘됐는지, 잘못된 매매가 왜 잘못됐는지 영영 알 수 없다. 이건 손실보다 비싸다.</p>
+<p>그리고 가장 심각한 건 <strong>손실이 발생했을 때 전략을 바꾸는 것</strong>이다. 추세추종 손절 기준에 부합했는데 "이 기업은 좋은 기업이니 조금 더 기다려보자"고 하는 순간, 추세추종 전략은 사라진다. 반대로 가치투자로 산 종목을 추세가 꺾이기도 전에 조금 올랐다고 팔아버리면, 그 순간 가치투자 전략은 사라진다.</p>
+<div class="cbox info"><div class="cbox-head">💡 참고</div>
+<p>표류를 잡아내는 질문은 하나면 충분하다.</p>
+<p><strong>"이 종목을 산 이유와, 지금 들고 있는 이유가 같은가?"</strong></p>
+<p>다르다면 이미 표류 중이다. 그때는 새 이유가 타당한지 따지기 전에, 원래 전략의 기준으로 먼저 판정해야 한다.</p>
+</div>
+<h2 id="h6">홀딩력의 역설 — 처분효과라는 이름</h2>
+<p>여기서 짚고 넘어갈 게 있다. 위에서 "홀딩이 가장 어렵다"고 했는데, 행동재무학 연구는 정반대를 말한다.</p>
+<p>Terrance Odean이 1998년 미국 할인증권사 개인계좌 1만 개의 거래 기록을 분석한 결과, 투자자들은 <strong>오른 종목은 너무 빨리 팔고, 떨어진 종목은 너무 오래 들고 있었다.</strong> 포트폴리오 리밸런싱이나 거래비용으로 설명되지 않았고, 이후 수익률로도 정당화되지 않았다. 이 현상에는 <strong>처분효과(disposition effect)</strong> 라는 이름이 붙어 있다.</p>
+<p>즉 사람들은 홀딩을 못 하는 게 아니다. <strong>틀린 쪽을 홀딩하고 있다.</strong></p>
+<p>모순처럼 보이지만 아니다. 둘은 서로 다른 홀딩이다.</p>
+<div class="table-wrap"><table><thead><tr><th>구분</th><th>손실 종목을 못 파는 것</th><th>수익 종목을 계속 드는 것</th></tr></thead><tbody><tr><td>성격</td><td>회피 (수동)</td><td>홀딩력 (능동)</td></tr><tr><td>동기</td><td>손실 확정을 미루고 싶다</td><td>근거가 아직 유효하다</td></tr><tr><td>근거 갱신</td><td>안 한다</td><td>매일 한다</td></tr><tr><td>결과</td><td>손실이 커진다</td><td>큰 수익의 조건이 된다</td></tr></tbody></table></div>
+<p>처분효과는 정확히 <strong>틀린 쪽을 들게 하고 맞은 쪽을 팔게</strong> 만드는 힘이다. 그러니까 홀딩력이란 새로운 인내심을 기르는 게 아니라, <strong>이미 작동 중인 이 편향을 뒤집는 훈련</strong>이다.</p>
+<p>이 관점이 중요한 이유는 자책을 줄여주기 때문이다. 손절을 못 한 건 내가 유독 나약해서가 아니라, 1만 개 계좌에서 통계적으로 확인된 편향이 나에게도 작동한 것이다. 의지로 이기려 하지 말고 <strong>구조로 막아야 한다</strong> — 그게 미리 정한 손절가와 점검 주기다.</p>
+<h2 id="h7">모든 전략에는 비작동 구간이 있다</h2>
+<p>전략을 바꾸게 만드는 근본 원인은 하나다. <strong>잘 안 되는 구간을 만났을 때 그게 전략의 결함이라고 착각하는 것.</strong></p>
+<p>모든 전략에는 반드시 잘되는 구간과 안 되는 구간이 있다.</p>
+<div class="table-wrap"><table><thead><tr><th>전략</th><th>비작동 구간의 모습</th></tr></thead><tbody><tr><td>추세추종</td><td>횡보장에서 손절이 연속으로 쌓인다</td></tr><tr><td>가치투자</td><td>좋은 기업을 싸게 샀는데 몇 개월에서 몇 년간 시장이 외면한다</td></tr><tr><td>단기매매</td><td>승률은 100%가 될 수 없다. 연속으로 틀리는 구간이 온다</td></tr><tr><td>퀀트</td><td>백테스트가 통했던 국면이 지나가면 성과가 눌린다</td></tr></tbody></table></div>
+<p>특히 추세추종은 오해가 많다. <strong>상승장에서 돈을 버는 전략이 아니라, 수많은 작은 손실을 감수하면서 가끔 나오는 큰 추세를 잡는 전략</strong>이다. 손절이 많이 나오는 건 고장이 아니라 설계다.</p>
+<p>숫자로 보면 이렇다. 터틀 트레이딩 시스템의 경우 개별 매매의 승률은 <strong>30~40%</strong> 수준이고, 대신 평균 수익이 평균 손실의 <strong>3~5배</strong>다. 시장이 실제로 추세를 내는 구간은 전체의 30% 정도라, 나머지 구간에서는 <strong>8~12회 연속 손실</strong>이 나오기도 한다.</p>
+<div class="cbox fail"><div class="cbox-head">❌ 실패 사례</div>
+<p>그리고 결정적인 사실이 있다. 대부분의 시스템 트레이더가 규칙을 포기하는 시점이, <strong>다음 큰 추세가 시작되기 직전</strong>이라는 것이다. 연속 손실의 심리적 고통이 최대치에 달한 바로 그 지점에서 손을 뗀다. 전략이 실패한 게 아니라 전략을 실행하는 사람이 먼저 나가떨어진 것이다.</p>
+</div>
+<p>그러니 투자에서 가장 어려운 일은 좋은 전략을 찾는 게 아니다. <strong>그 전략이 작동하지 않는 구간을 견디는 것</strong>이다.</p>
+<h2 id="h8">메타인지 — 나는 어떤 투자자인가</h2>
+<p>여기까지 오면 질문이 바뀐다. "무엇이 좋은 방법인가"보다 <strong>"나에게 어떤 방법이 맞는가"</strong> 가 중요해진다. 이건 메타인지의 문제다.</p>
+<p>스스로에게 물어야 할 것들.</p>
+<ol>
+<li>손실을 얼마나 견딜 수 있는가?</li>
+<li>몇 개월 동안 아무 수익이 없어도 전략을 유지할 수 있는가?</li>
+<li>기업의 실적과 산업을 공부하는 게 재미있는가?</li>
+<li>아니면 차트의 가격 움직임을 보는 게 더 편한가?</li>
+<li>빠른 손절을 반복해도 멘탈을 유지할 수 있는가?</li>
+<li>반대로 장기간 보유하며 가치가 실현되기를 기다릴 수 있는가?</li>
+<li><strong>돈이 걸린 상황에서도 내가 정한 원칙을 지킬 수 있는가?</strong></li>
+</ol>
+<p>이런 것들은 책을 읽거나 유튜브를 본다고 쉽게 바뀌지 않는다. <strong>사람의 성향 자체가 쉽게 바뀌지 않기 때문이다.</strong> 그러니 성향을 바꾸려 애쓰는 대신, 성향에 맞는 방법을 고르는 편이 현실적이다.</p>
+<p>투자 방법을 선택할 때 던져야 할 진짜 질문은 이것이다. <strong>나는 어떤 방법을 실제로 실행할 수 있는 사람인가?</strong></p>
+<p>7번이 가장 중요하고 가장 검증하기 어렵다. 아는 것과 할 수 있는 것은 완전히 다르기 때문이다. 이 질문에 답하려면 실제로 돈을 넣고 겪어보는 수밖에 없다 — 그래서 기록이 필요하다.</p>
+<h2 id="h9">내가 겪은 실패 — 원칙 없이 산 두 종목</h2>
+<p>솔직하게 적어둔다. 이 글을 쓰게 된 계기이기도 하다.</p>
+<p>나는 손실을 대략 <strong>-8~-10%</strong> 까지는 견딜 수 있는 것 같다. 최대로 잡으면 -20%. 그 이후로 떨어지는 걸 손절하지 못했을 때는, 사실상 오르기만을 기도하는 상태가 된다.</p>
+<p>보유 종목 A(증권업)와 보유 종목 B(발전설비)에서 정확히 그렇게 됐다. 손절 원칙을 세우지 못했고, 세웠더라도 지키지 못했다. 지금은 오르기만을 기다리고 있다.</p>
+<p>돌아보면 원인은 세 가지였다.</p>
+<ul>
+<li><strong>점검을 지속하지 않았다.</strong> 포트폴리오를 관리한 게 아니라 방치했다. 위에서 말한 가짜 홀딩 중 세 번째다.</li>
+<li><strong>손절가를 정해두지 않았다.</strong> 기본적·재무적 분석으로 "좋은 기업"이라는 결론까지는 냈는데, 그 결론이 틀렸을 때 어디서 인정할지는 정하지 않았다.</li>
+<li><strong>시장이 인정해주지 않을 가능성을 계산에 넣지 않았다.</strong> 실적과 전망이 아무리 좋아도 시장에서 인정받지 못하는 케이스가 많다는 걸 몰랐다.</li>
+</ul>
+<p>여기서 도출한 규칙 세 가지.</p>
+<ol>
+<li><strong>기본적·재무적 분석에 더해 기술적 분석으로 손절가·익절가를 산정한다.</strong> 좋은 기업인지 판단하는 도구와, 틀렸을 때 인정하는 도구는 다르다.</li>
+<li><strong>종목별로 매수·매도 시점과 비중 원칙을 세우고 그대로 실행한다.</strong> 머릿속이 아니라 문서로.</li>
+<li><strong>펀더멘탈과 시장의 관심이 여전히 유효한지 계속 확인한다.</strong> 둘 중 하나만 무너져도 근거는 절반이 사라진 것이다.</li>
+</ol>
+<p>이 규칙을 실제로 쓸 수 있는 형태로 만든 것이 <a href="my-trading-rules.html">자기진단과 매매원칙 템플릿</a>이다.</p>
+<h2 id="h10">아는 것과 할 수 있는 것은 다르다</h2>
+<p>정리하면 이렇다.</p>
+<ul>
+<li>심법은 판단력·베팅력·홀딩력 세 능력이고, 홀딩력이 가장 어렵다</li>
+<li>홀딩력은 안 파는 능력이 아니라 근거를 매일 갱신하는 능력이다</li>
+<li>가장 흔한 실패는 나쁜 전략이 아니라 <strong>전략을 도중에 바꾸는 것</strong>이다</li>
+<li>모든 전략에는 비작동 구간이 있고, 그걸 견디는 게 전략의 본체다</li>
+<li>그래서 중요한 건 최고의 전략이 아니라 <strong>내가 감당할 수 있는 전략</strong>이다</li>
+</ul>
+<p>투자는 지식만으로 하는 게임이 아니다. 알고 있는 것과 실제로 할 수 있는 것은 완전히 다르다. 결국 투자에서 가장 어려운 것은 <strong>내 본능과 끊임없이 싸우면서 내가 선택한 방법을 끝까지 실행하며 지키는 것</strong>이다.</p>
+<p>같은 사상을 하나의 지표에 적용한 사례로는 <a href="../technical/follow-through-day.html">팔로스루 데이</a>의 "실패를 미리 정의해 두기" 절을 함께 보면 좋다. 진입 조건보다 <strong>무효 조건</strong>을 먼저 정하는 것이 왜 더 값진지에 대한 이야기다.</p>
+<div class="disclaimer"><strong>📌 읽기 전에</strong><p>이 글은 개인 공부 기록이며 투자 자문이 아닙니다. 특정 종목의 매수·매도를 권유하지 않습니다. 여기 실린 지표와 규칙은 확률적 신호일 뿐 결과를 보장하지 않으며, 투자 판단과 그 결과는 투자자 본인에게 귀속됩니다.</p></div>
+  </div>
+  <div class="sources"><div class="section-title">출처</div><ol><li>주식 투자가 어려운 이유는 똑똑하지 않아서가 아니다 (깡토 (네이버 블로그)) — <a href="https://blog.naver.com/love392722/224382468344" target="_blank" rel="noopener">https://blog.naver.com/love392722/224382468344</a></li><li>투자의 자질 1편 : 홀딩력 (미생 (네이버 블로그)) — <a href="https://blog.naver.com/firelifestyle/224384497927" target="_blank" rel="noopener">https://blog.naver.com/firelifestyle/224384497927</a></li><li>Are Investors Reluctant to Realize Their Losses? (Odean, 1998, Journal of Finance) (UC Berkeley Haas) — <a href="https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/areinvestorsreluctant.pdf" target="_blank" rel="noopener">https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/ar</a></li><li>Disposition effect 개요 (Wikipedia) — <a href="https://en.wikipedia.org/wiki/Disposition_effect" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Disposition_effect</a></li><li>Winning Percentage Means Nothing — The Babe Ruth Lesson for Trend Followers (TurtleTrader) — <a href="https://www.turtletrader.com/babe-ruth/" target="_blank" rel="noopener">https://www.turtletrader.com/babe-ruth/</a></li><li>Turtle Trading Strategy — Rules, Statistics, and Backtests (QuantifiedStrategies) — <a href="https://www.quantifiedstrategies.com/turtle-trading-strategy/" target="_blank" rel="noopener">https://www.quantifiedstrategies.com/turtle-trading-strategy/</a></li></ol></div>
+  <div class="note-nav"><a href="my-trading-rules.html"><span class="lbl">다음 글 →</span>자기진단과 매매원칙 템플릿 — 채워 넣는 문서</a></div>
+  <div class="footer">powered by Claude · 주식공부 노트</div>
+</div>
+
+
+</body>
+</html>
