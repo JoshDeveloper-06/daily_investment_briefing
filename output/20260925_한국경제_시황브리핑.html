@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한국경제 시황 브리핑 2026.09.25</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --card-alt: #1c2128;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --red: #ff6b6b;
+  --blue: #1f3a5f;
+  --accent: #388bfd;
+  --light-blue: #58a6ff;
+  --green: #3fb950;
+  --yellow: #e3a44c;
+  --innovation: #bf7aff;
+  --koreamarket: #4ecdc4;
+  --naver: #03c75a;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  line-height: 1.5;
+}
+.wrap { max-width: 880px; margin: 0 auto; }
+html { scroll-behavior: smooth; }
+
+.header {
+  background: linear-gradient(135deg, #0d1117 0%, #1f3a5f 100%);
+  color: var(--text);
+  padding: 28px 24px 20px;
+}
+.header h1 { margin: 0 0 6px; font-size: 24px; color: #e6edf3; }
+.header h1 span { color: var(--light-blue); }
+.header-date { color: var(--text-muted); font-size: 14px; margin-bottom: 4px; }
+.holiday-badge {
+  display: inline-block;
+  background: rgba(227,164,76,0.18);
+  border: 1px solid rgba(227,164,76,0.4);
+  color: #e3a44c;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin: 8px 0 14px;
+}
+.market-bar { display: flex; flex-wrap: wrap; gap: 8px; }
+.market-chip {
+  background: var(--card-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+.market-chip .lbl { color: var(--text-muted); margin-right: 4px; }
+.market-chip.up-bg { background: rgba(255,107,107,0.18); border-color: rgba(255,107,107,0.35); }
+.market-chip.down-bg { background: rgba(88,166,255,0.15); border-color: rgba(88,166,255,0.30); }
+
+.toc {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; flex-wrap: wrap; gap: 4px;
+  padding: 10px 12px;
+  background: #0d1117;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.toc a {
+  color: var(--text-muted); text-decoration: none;
+  font-size: 13px; font-weight: 500;
+  padding: 6px 10px; border-radius: 6px; white-space: nowrap;
+}
+.toc a:hover, .toc a:active { background: var(--card-alt); color: var(--light-blue); }
+@media (max-width: 650px) { .toc { overflow-x: auto; flex-wrap: nowrap; } }
+
+.container { padding: 16px; }
+.section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+.section-title {
+  font-size: 18px; font-weight: 700; color: var(--text);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 10px; margin-bottom: 16px;
+}
+.card { background: var(--card-alt); border: 1px solid var(--border); border-radius: 10px; padding: 12px; margin-bottom: 10px; }
+.card h3 { font-size: 14px; margin: 0 0 6px; color: var(--text); }
+.card p { font-size: 13px; color: var(--text); margin: 4px 0; }
+
+table { width: 100%; border-collapse: collapse; }
+th { background: #1f3a5f; color: #e6edf3; padding: 10px 12px; font-size: 13px; text-align: left; }
+td { padding: 9px 12px; border-bottom: 1px solid var(--border); color: var(--text); font-size: 13px; }
+tr:nth-child(even) td { background: var(--card-alt); }
+tr:hover td { background: #21262d; }
+.up-val { color: #ff6b6b; font-weight: 700; }
+.down-val { color: #58a6ff; font-weight: 700; }
+.net-buy { color: #ff6b6b; font-weight: 700; }
+.net-sell { color: #58a6ff; font-weight: 700; }
+
+.article-title {
+  background: #2d2a00; color: #ffd54f; border-radius: 4px;
+  padding: 2px 6px; font-weight: 700; display: inline-block; text-decoration: none;
+}
+.article-title:hover { background: #4a4200; color: #ffe680; text-decoration: underline; }
+
+.article-item { margin-bottom: 12px; }
+.article-item.featured {
+  background: rgba(255,107,107,0.12);
+  border: 2px solid #ff6b6b;
+  border-radius: 8px;
+  padding: 12px;
+}
+.article-item.featured .article-title { background: #3a1a1a; color: #ff8080; border: 1px solid #ff6b6b; padding: 4px 8px; }
+.article-item.featured .article-title:hover { background: #4a2a2a; color: #ffb3b3; }
+.article-item.featured::before {
+  content: "⭐ 주목"; display: inline-block; background: #ff6b6b; color: #fff;
+  font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 3px;
+  margin-bottom: 6px; margin-right: 6px;
+}
+.article-summary { margin: 8px 0; color: var(--text); font-size: 13px; }
+.tag { display: inline-block; font-size: 11px; color: var(--text-muted); border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; margin-left: 6px; }
+
+.callout {
+  background: #1c2128; border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 10px 0; color: var(--text); font-size: 13px;
+}
+.callout.warn { border-left-color: var(--yellow); }
+.callout.green { border-left-color: var(--green); }
+.callout.red { border-left-color: var(--red); }
+
+.innovation-section { background: linear-gradient(135deg, #1a0d2e 0%, #160d22 100%); border: 2px solid #6a1fcb; }
+.innovation-section .section-title { color: var(--innovation); }
+.innovation-card { background: #1c1228; border: 1px solid #4a1a7a; border-radius: 10px; padding: 14px; margin-bottom: 10px; }
+.innovation-card p { color: var(--text); font-size: 13px; margin: 4px 0; }
+
+.bizmarket-section { background: linear-gradient(135deg, #1e1408 0%, #191208 100%); border: 2px solid #8a5a20; }
+.bizmarket-section .section-title { color: var(--yellow); }
+
+.naver-section { border: 2px solid #03c75a; }
+.naver-section .section-title { color: var(--naver); }
+
+.summary-section { background: linear-gradient(135deg, #0d2340 0%, #0a1a30 100%); border: 1px solid #1f3a5f; color: #e6edf3; }
+.summary-item {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  border-left: 3px solid var(--light-blue); border-radius: 8px; padding: 12px 16px; margin: 8px 0; font-size: 13px;
+}
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 650px) { .two-col { grid-template-columns: 1fr; } }
+
+footer {
+  background: #0d1117; border-top: 1px solid var(--border); color: var(--text-muted);
+  text-align: center; padding: 16px; font-size: 12px;
+}
+.src-note { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <h1>📰 한국경제 <span>시황 브리핑</span></h1>
+  <div class="header-date">2026년 9월 25일 (금)</div>
+  <div class="holiday-badge">🎑 추석 연휴 휴장 — 9/24(목)~9/25(금) 휴장, 9/28(월) 09:00 정규 개장 재개</div>
+  <div class="market-bar">
+    <div class="market-chip up-bg"><span class="lbl">KOSPI(9/23 종가)</span> 7,080.92 ▲0.90%</div>
+    <div class="market-chip up-bg"><span class="lbl">KOSDAQ(9/23 종가)</span> 844.48 ▲1.21%</div>
+    <div class="market-chip"><span class="lbl">USD/KRW</span> 1,358.4원</div>
+    <div class="market-chip down-bg"><span class="lbl">美 10년물</span> 약 5.19~5.2%</div>
+    <div class="market-chip down-bg"><span class="lbl">美 30년물</span> 약 5.5% (2004년來 최고)</div>
+    <div class="market-chip down-bg"><span class="lbl">필라델피아 반도체(SOX)</span> ▼1.2% (연휴 중)</div>
+  </div>
+</div>
+
+<nav class="toc">
+  <a href="#sec-market">📊 1.증시현황</a>
+  <a href="#sec-headline">📰 2.헤드라인</a>
+  <a href="#sec-marketdata">📈 3.마켓데이터</a>
+  <a href="#sec-innovation">🚀 4.기업&산업뉴스</a>
+  <a href="#sec-premium">💎 5.프리미엄단독</a>
+  <a href="#sec-naver">🌐 6.네이버뉴스분석</a>
+  <a href="#sec-summary">📋 7.종합판단</a>
+</nav>
+
+<div class="container">
+
+  <div class="section" id="sec-market">
+    <div class="section-title">📊 1. 증시 현황 요약</div>
+    <div class="callout warn">
+      오늘(9/25)은 추석 연휴로 국내 증시가 휴장했습니다. 아래 수치는 <b>직전 마지막 거래일인 9월 23일(수)</b> 종가·수급 기준이며, 다음 정규 개장은 <b>9월 28일(월) 오전 9시</b>입니다.
+    </div>
+    <table>
+      <tr><th>지수/자산</th><th>수치</th><th>등락</th><th>기준일</th></tr>
+      <tr><td>코스피</td><td>7,080.92</td><td class="up-val">▲0.90%</td><td>9/23</td></tr>
+      <tr><td>코스닥</td><td>844.48</td><td class="up-val">▲1.21%</td><td>9/23</td></tr>
+      <tr><td>USD/KRW</td><td>1,358.4원</td><td>전일比 +0.2원</td><td>9/23 15:30</td></tr>
+      <tr><td>미국 10년물 국채금리</td><td>약 5.19~5.2%</td><td class="down-val">급등</td><td>연휴 중(9/24)</td></tr>
+      <tr><td>미국 30년물 국채금리</td><td>약 5.5%</td><td class="down-val">2004년 이후 최고</td><td>연휴 중(9/24)</td></tr>
+      <tr><td>필라델피아 반도체지수(SOX)</td><td>-</td><td class="down-val">▼1.2%</td><td>연휴 중</td></tr>
+      <tr><td>코스피200 야간선물</td><td colspan="3">당일 데이터 확인 불가 (휴장으로 인한 공백 — 참고: 9/23 개장 전 선물은 강세 기록되었으나 오늘 데이터 아님)</td></tr>
+    </table>
+    <div class="src-note">※ 미국 3대 지수(다우·나스닥·S&P500) 구체 수치는 이번 회차에서 확보하지 못했습니다(네트워크 접근 제약).</div>
+  </div>
+
+  <div class="section" id="sec-headline">
+    <div class="section-title">📰 2. 헤드라인 뉴스</div>
+
+    <div class="article-item featured">
+      <a class="article-title" href="https://www.thepublic.kr/news/articleView.html?idxno=320024" target="_blank" rel="noopener">110조 쏘는 삼성전자…'역대급 배당'에 코스피 배당판 바뀌나</a>
+      <p class="article-summary">삼성전자 3분기 특별배당(주당 약 4,500원 안팎) 포함 연간 배당 총액 90조~110조원 추진 전망. 배당락 전 매수세 유입으로 추석 전 주가 13% 급등, 28만5,500원(9/23)에 마감. 삼성그룹 관계사를 거쳐 코스피 전체 배당 규모를 최대 60%까지 끌어올리는 낙수효과 기대.</p>
+    </div>
+
+    <div class="article-item">
+      <a class="article-title" href="https://www.econovill.com/news/articleView.html?idxno=751895" target="_blank" rel="noopener">추석 이후 코스피, 연말 랠리 이어질까…증권가가 본 4분기 전망은</a>
+      <p class="article-summary">28일 재개장하는 국내 증시에 연휴 기간 쌓인 미중 정상회담·미 국채금리 등 대외 변수가 한꺼번에 반영될 전망. 증권가는 4분기 코스피 8000선 안팎을 제시.</p>
+    </div>
+
+    <div class="article-item">
+      <a class="article-title" href="https://www.greened.kr/news/articleView.html?idxno=350816" target="_blank" rel="noopener">美증시 급락 딛고 보합…10년물 5.2%·SOX 약세, 월요일 반도체 시험대</a>
+      <p class="article-summary">미 10년물 국채금리 5.19%까지 상승, 30년물은 5.5%로 2004년 이후 최고 수준. 9월 PMI는 58.4로 2021년 7월 이후 최고치. SOX 약세로 월요일 국내 반도체주 변동성 우려.</p>
+    </div>
+
+    <div class="article-item">
+      <a class="article-title" href="https://www.ajunews.com/view/20260924083448742" target="_blank" rel="noopener">개인 매수대기자금 100조원 돌파…추석 이후 '7000피' 굳힐까?</a>
+      <p class="article-summary">추석 연휴 직전 마지막 거래일(9/23) 코스피 0.90% 상승한 7,080.92 마감. 기관 3,233억원·기타법인 1조6,296억원 순매수, 개인은 4거래일 연속(1조4,543억원) 순매도. 투자자예탁금 100조원 회복.</p>
+    </div>
+
+    <div class="article-item">
+      <a class="article-title" href="https://www.wikitree.co.kr/articles/1161853" target="_blank" rel="noopener">고점 개미 9조 5천억 손실…27년 만에 '최악'의 매매 타이밍</a>
+      <p class="article-summary">9/23 장 마감 기준 개인 투자자 1조4,649억원, 외국인 4,942억원 순매도. 반면 기관은 순매수. 올해 고점 대비 개인 투자자 매매 타이밍 논란 제기.</p>
+    </div>
+
+    <div class="article-item">
+      <a class="article-title" href="https://www.bntnews.co.kr/article/view/bnt202609250108" target="_blank" rel="noopener">28일 임시공휴일 지정 무산…추석 연휴 증시 휴장일, 개장 시간은</a>
+      <p class="article-summary">코스피·코스닥은 추석 공휴일인 9/24·25일 휴장하며, 9/28(월) 임시공휴일 지정이 무산되어 오전 9시 정상 개장이 확정됨.</p>
+    </div>
+  </div>
+
+  <div class="section" id="sec-marketdata">
+    <div class="section-title">📈 3. 마켓데이터 분석 (9/23 수급 기준)</div>
+    <table>
+      <tr><th>투자자</th><th>코스피</th><th>코스닥</th></tr>
+      <tr><td>외국인</td><td class="net-sell">약 -5,047억~-5,107억원</td><td class="net-sell">약 -461억~-486억원</td></tr>
+      <tr><td>기관</td><td class="net-buy">약 +3,191억~+3,233억원</td><td class="net-buy">약 +61억~+68억원</td></tr>
+      <tr><td>기타법인</td><td class="net-buy">약 +1조6,296억원 (자사주 매입 추정)</td><td>-</td></tr>
+      <tr><td>개인</td><td class="net-sell">약 -1조4,396억~-1조4,649억원 (4거래일 연속 순매도)</td><td class="net-buy">약 +317억~+321억원</td></tr>
+    </table>
+    <div class="callout">
+      <b>종목별 특이사항</b>: 코스피 전체로는 외국인이 순매도했지만, <b>삼성전자</b>만 놓고 보면 외국인이 <span class="net-buy">+1조2,827억원</span> 순매수했습니다. SK하이닉스 등 반도체 업종 전반에는 일부 차익실현 매물이 관측됐습니다.
+    </div>
+  </div>
+
+  <div class="section innovation-section" id="sec-innovation">
+    <div class="section-title">🚀 4. 기업 &amp; 산업 뉴스</div>
+
+    <div class="innovation-card">
+      <div class="article-item featured" style="border:none;background:none;padding:0;">
+        <a class="article-title" href="https://www.hankyung.com/article/202609233120i" target="_blank" rel="noopener">"주문 감당하기 힘들 지경"…한국·일본 빈틈 노렸더니 '대박'</a>
+        <span class="tag">삼성전자 005930 · KOSPI</span>
+        <p class="article-summary">삼성전자·SK하이닉스가 HBM 생산에 주력하며 범용(레거시) D램 공급이 줄어들자, 이 공백을 메운 기업들이 유리한 조건으로 선별 수주에 나서며 평균판매가격(ASP)이 상승 중.</p>
+        <p class="article-summary"><b>투자포인트</b>: 메모리 가격 상승 사이클 진입 신호, 3분기 실적 개선 기대감 상승</p>
+      </div>
+    </div>
+
+    <div class="innovation-card">
+      <div class="article-item featured" style="border:none;background:none;padding:0;">
+        <a class="article-title" href="https://www.seoulfn.com/news/articleView.html?idxno=638466" target="_blank" rel="noopener">HBM 밖에서도 AI 특수···K-반도체 '제2전선' 커진다</a>
+        <span class="tag">파두 / SFA반도체 등 · KOSDAQ</span>
+        <p class="article-summary">삼성전자·SK하이닉스 외 마벨·파이슨 등 팹리스 그룹이 부상. 파두는 SSD 컨트롤러 등에서 신규 수주 3,400억원을 확보하며 안정적 수익 기반 마련.</p>
+        <p class="article-summary"><b>투자포인트</b>: 비HBM(SSD컨트롤러 등) 영역으로 AI 반도체 수혜 확산</p>
+      </div>
+    </div>
+
+    <div class="innovation-card">
+      <div class="article-item featured" style="border:none;background:none;padding:0;">
+        <a class="article-title" href="https://www.hankyung.com/article/2026092217681" target="_blank" rel="noopener">[단독] 드러켄밀러의 원픽?…원익IPS 찾은 이유</a>
+        <span class="tag">원익IPS 240810 · KOSDAQ</span>
+        <p class="article-summary">스탠리 드러켄밀러 듀케인패밀리오피스 회장이 한국 투자처를 물색하며 원익IPS에 관심을 보인 것으로 알려짐.</p>
+        <p class="article-summary"><b>투자포인트</b>: 글로벌 거물 투자자의 반도체 장비주 관심, 밸류에이션 재평가 가능성</p>
+      </div>
+    </div>
+
+    <div class="innovation-card">
+      <a class="article-title" href="http://www.smedaily.co.kr/news/articleView.html?idxno=363734" target="_blank" rel="noopener">서해 밑 14조 전기대동맥, 뚫린다</a>
+      <span class="tag">LS마린솔루션 · KOSPI</span>
+      <p class="article-summary">삼성전자·SK하이닉스 호남권 신규 반도체 산업단지 전력 공급을 위한 서해 해저 전력망 사업. LS마린솔루션이 창사 이후 최대 규모의 초고압 해저 전력케이블 수주를 확보.</p>
+    </div>
+
+    <div class="innovation-card">
+      <a class="article-title" href="https://www.hankyung.com/article/2026092217611" target="_blank" rel="noopener">삼아알미늄, AI데이터센터 '숨은 수혜주' 부상</a>
+      <span class="tag">삼아알미늄 006110 · KOSDAQ</span>
+      <p class="article-summary">올해 영업이익 전년比 124.9% 증가, 내년 영업이익은 316억원으로 올해 대비 619.3% 급증 전망.</p>
+    </div>
+
+    <div class="innovation-card">
+      <a class="article-title" href="https://www.hankyung.com/article/2026092339761" target="_blank" rel="noopener">OCI홀딩스·한화솔루션 쑥…美 태양광 재편 수혜</a>
+      <span class="tag">OCI홀딩스 010060 / 한화솔루션 009830 · KOSPI</span>
+      <p class="article-summary">9/23 OCI홀딩스 +9.57%(20만6,000원), 한화솔루션 +6.38%. 미국 태양광 산업 재편에 따른 국내 관련주 수혜 기대감 반영.</p>
+    </div>
+
+    <div class="innovation-card">
+      <a class="article-title" href="https://www.hankyung.com/article/2026092190151" target="_blank" rel="noopener">[단독] 1년새 4.5조 격차 뒤집은 네이버페이…'카드사 독식' 깼다</a>
+      <span class="tag">네이버(NAVER) 035420 · KOSPI</span>
+      <p class="article-summary">간편결제 시장에서 네이버페이가 카드 기반 결제사 점유율을 역전. 간편결제가 전체 결제의 51.9%로 절반 이상 차지.</p>
+    </div>
+
+    <div class="innovation-card">
+      <a class="article-title" href="http://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202609220110&t=NNv" target="_blank" rel="noopener">[단독] LG도 'AI 글라스' 만든다…"XR 기술 탑재"</a>
+      <span class="tag">LG전자 066570 · KOSPI</span>
+      <p class="article-summary">LG전자가 40조원 규모 AI 글라스 시장에 신규 진출. 구체적 출시 일정은 미정이나 XR 기술 탑재 제품 개발 중.</p>
+    </div>
+  </div>
+
+  <div class="section bizmarket-section" id="sec-premium">
+    <div class="section-title">💎 5. 한경 프리미엄9 단독</div>
+    <div class="callout warn">추석 연휴 특성상 9/25 신규 게재 콘텐츠가 제한적이라, 최근 거래일(9/21~9/23) 게재분을 함께 실었습니다.</div>
+
+    <h3 style="font-size:14px;color:#e3a44c;margin:14px 0 6px;">핫스톡</h3>
+    <div class="card"><a class="article-title" href="https://www.hankyung.com/article/2026092339751" target="_blank" rel="noopener">가온전선 뜀박질…이달 전선주 상승률 1위</a><p>9/23 게재 · AI데이터센터發 전력 인프라 투자 확대 수혜 기대</p></div>
+    <div class="card"><a class="article-title" href="https://www.hankyung.com/article/2026092217611" target="_blank" rel="noopener">삼아알미늄, AI데이터센터 '숨은 수혜주' 부상</a><p>9/22 게재</p></div>
+    <div class="card"><a class="article-title" href="https://www.hankyung.com/article/2026092339761" target="_blank" rel="noopener">OCI홀딩스·한화솔루션 쑥…美 태양광 재편 수혜</a><p>9/23 게재</p></div>
+
+    <h3 style="font-size:14px;color:#e3a44c;margin:14px 0 6px;">투자인사이트</h3>
+    <div class="card"><a class="article-title" href="https://www.hankyung.com/article/202609183238i" target="_blank" rel="noopener">"40대에 생긴 120억 넣은 곳이…" 수익률 80% 대박 비결</a><p>9/25(오늘) 12:01 게재 · 개인 투자자 자산배분 성공 사례</p></div>
+    <div class="card"><a class="article-title" href="https://www.hankyung.com/article/2026092217351" target="_blank" rel="noopener">美반도체주 급등에도…7천피 겨우 지킨 코스피</a><p>9/22 게재</p></div>
+
+    <h3 style="font-size:14px;color:#e3a44c;margin:14px 0 6px;">한경단독 [단독]</h3>
+    <div class="card"><a class="article-title" href="https://www.hankyung.com/article/2026092190151" target="_blank" rel="noopener">[단독] 1년새 4.5조 격차 뒤집은 네이버페이…'카드사 독식' 깼다</a><p>9/21 게재</p></div>
+    <div class="card"><a class="article-title" href="https://www.hankyung.com/article/2026092190421" target="_blank" rel="noopener">[단독] 네이버페이, 롯데카드 제치고 '빅5'</a><p>9/21 게재</p></div>
+    <div class="card"><a class="article-title" href="https://www.hankyung.com/article/2026092217681" target="_blank" rel="noopener">[단독] 드러켄밀러의 원픽?…원익IPS 찾은 이유</a><p>9/22 게재</p></div>
+    <div class="card"><a class="article-title" href="https://www.hankyung.com/article/2026092339801" target="_blank" rel="noopener">[단독] 액면병합 후 외국인 지분 '0'…넉 달간 수급정보 오류 발생</a><p>9/23 게재</p></div>
+    <div class="card"><a class="article-title" href="https://www.hankyung.com/article/2026092340231" target="_blank" rel="noopener">[단독] 항공엔진 국산화 사업 첫 입찰 결국 유찰</a><p>9/23 게재</p></div>
+  </div>
+
+  <div class="section naver-section" id="sec-naver">
+    <div class="section-title">🌐 6. 네이버 뉴스 종합 분석</div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>시장 심리</h3>
+        <p><b style="color:#e3a44c;">중립 (Neutral)</b></p>
+        <p>코스피·코스닥은 추석 연휴로 9/24~25 휴장(데이터 없음)이라 직전 거래일(9/23) 종가는 반도체 강세로 상승 마감했지만, 휴장 기간 중 미국 10년물 국채금리 급등과 필라델피아반도체지수(SOX) 하락으로 월요일 재개장을 앞두고 경계심리가 높아진 혼조 국면입니다.</p>
+      </div>
+      <div class="card">
+        <h3>V자 반등 vs 신중론</h3>
+        <p><b style="color:#ff6b6b;">강세론</b>: 반도체 수출 급증과 대형주 실적 모멘텀, 100조원대 매수대기자금을 바탕으로 '전약후강' 패턴이 재현되며 코스피가 7,000선 위에서 추가 상승할 것이라는 낙관론.</p>
+        <p><b style="color:#58a6ff;">신중론</b>: 미국 국채금리 급등과 SOX 약세, 개인·외국인 수급 이탈이 겹치며 월요일 재개장 시 그간 눌려 있던 조정 압력이 한꺼번에 반영될 것이라는 우려.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:14px;margin:16px 0 8px;">다음 거래일(9/28 월) 전망</h3>
+    <div class="two-col">
+      <div class="card">
+        <h3 style="color:#ff6b6b;">긍정 요인</h3>
+        <p>· 9월 1~20일 반도체 수출 259.4% 급증 등 펀더멘털 강세</p>
+        <p>· 투자자예탁금 100조원 회복, 저가매수 여력 충분</p>
+        <p>· 최근 상승 모멘텀(코스피 4거래일 연속 강세) 지속 기대</p>
+      </div>
+      <div class="card">
+        <h3 style="color:#58a6ff;">부정 요인</h3>
+        <p>· 美 10년물 5.2%대·30년물 5.5%(2004년來 최고) 금리 급등</p>
+        <p>· 휴장 중 SOX 1.2% 하락, 월요일 반도체주 조정 우려</p>
+        <p>· 개인 4거래일 연속 순매도, 외국인 순매도 전환</p>
+      </div>
+    </div>
+    <div class="callout">
+      <b>주목 포인트</b>: 미중 정상회담 결과 및 AI칩·무역 합의 여부 · 마이크론(Micron) 실적 발표(반도체 업황 가늠자) · 9/28 재개장 시 휴장 3거래일치 해외 변수 반영에 따른 변동성 확대 여부
+    </div>
+  </div>
+
+  <div class="section summary-section" id="sec-summary">
+    <div class="section-title" style="color:#e6edf3;">📋 7. 종합 시황 판단</div>
+    <div class="summary-item">
+      <b>① 오늘은 휴장일입니다.</b> 추석 연휴로 9/24~25 이틀간 국내 증시가 문을 닫았고, 다음 거래는 9/28(월) 오전 9시에 재개됩니다. 이번 브리핑의 가격·수급 데이터는 모두 직전 거래일(9/23)을 기준으로 합니다.
+    </div>
+    <div class="summary-item">
+      <b>② 마지막 거래일 흐름은 견조했습니다.</b> 코스피 7,080.92(+0.90%), 코스닥 844.48(+1.21%)로 4일 연속 상승 마감했고, 기관·기타법인(자사주 매입 추정) 순매수가 지수를 지지했습니다. 다만 개인은 4거래일 연속 순매도, 외국인도 코스피 전체 기준으로는 순매도해 수급 공백이 감지됩니다.
+    </div>
+    <div class="summary-item">
+      <b>③ 반도체·배당이 핵심 테마입니다.</b> 레거시 D램 ASP 상승, HBM 외 영역(SSD컨트롤러 등)으로의 AI 수혜 확산, 삼성전자의 역대급 배당(최대 110조원) 이슈가 시장의 주요 관심사로 부각됐습니다.
+    </div>
+    <div class="summary-item">
+      <b>④ 월요일은 '3일치 변수'가 한꺼번에 반영될 수 있습니다.</b> 휴장 기간 미국 10년물 국채금리가 5.2%대까지 급등(30년물은 2004년 이후 최고)했고 필라델피아반도체지수(SOX)도 1.2% 하락했습니다. 미중 정상회담 결과와 마이크론 실적도 변수입니다. 9/28 재개장 초반 변동성 확대 가능성에 대비할 필요가 있습니다.
+    </div>
+    <div class="summary-item">
+      <b>⑤ 데이터 공백 안내.</b> 이 리포트는 클라우드 실행 환경의 네트워크 정책상 한경 지면 뷰어·Yahoo Finance 등 일부 외부 사이트에 직접 접근하지 못해, 네이버 뉴스에 노출된 한경(hankyung.com) 기사와 관련 매체 보도를 통해 데이터를 재구성했습니다. 코스피 캔들차트와 미국 3대 지수 구체 수치는 이번 회차에서 제공하지 못했습니다.
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  출처: 한국경제신문(hankyung.com) 기사 원문 · 네이버 뉴스 검색 · 각 언론사 보도<br>
+  데이터 기준: 2026년 9월 23일(수) 마지막 거래일 종가 및 수급 (9/24~25 추석 연휴 휴장)<br>
+  본 리포트는 정보 제공 목적이며 투자 판단의 책임은 투자자 본인에게 있습니다.
+</footer>
+
+</div>
+</body>
+</html>
